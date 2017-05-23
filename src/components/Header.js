@@ -22,14 +22,14 @@ class Header extends Component {
         <Navbar className="navbar">
           <Navbar.Header>
             <Navbar.Brand>
-              <a id="title" href="#">ProjectOverflow</a>
+              <a id="title" href="/">ProjectOverflow</a>
             </Navbar.Brand>
           </Navbar.Header>
 
           <Nav>
-            <NavItem href="/About">About</NavItem>
-            <NavItem eventKey={2} href="#">Contact</NavItem>
-            <NavItem href="#">Documentation</NavItem>
+            <NavItem href="/about">About</NavItem>
+            <NavItem eventKey={2} href="/contact">Contact</NavItem>
+            <NavItem href="/documentation">Documentation</NavItem>
           </Nav>
             <Navbar.Form pullLeft>
               <FormGroup>
