@@ -5,7 +5,7 @@ const styles = {
 	backgroundColor: 'rgb(26,26,26)',
 	opacity: '.7',
 	color: 'white',
-	height: '100',
+	height: '70',
 	textAlign: 'center',
 	padding: '2.5% 0',
 	position: 'absolute',
