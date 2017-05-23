@@ -8,7 +8,7 @@ const styles = {
 	height: '70',
 	textAlign: 'center',
 	padding: '2.5% 0',
-	position: 'absolute',
+	position: 'fixed',
   right: '0',
   bottom: '0',
   left: '0'
@@ -25,10 +25,8 @@ export default class Footer extends Component {
   render(){
   	return(
   			<div style={styles}>
-  				<h4 style={projTitle}>ProjectOverflow &copy; 2017</h4> 
+  				<h4 style={projTitle}>ProjectOverflow &copy; 2017</h4>
   			</div>
   		)
   }
 }
-
-
