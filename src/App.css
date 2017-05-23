@@ -10,6 +10,14 @@
 /*div.container{
 	background-color: black;
 }*/
+.flex-wrapper-info{
+	display: flex;
+	flex-direction:column;
+	margin:0 auto;
+	width:800px;
+}
+
+
 
 .flex-wrapper{
 	display: flex;
