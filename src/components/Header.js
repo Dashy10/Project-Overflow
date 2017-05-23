@@ -15,7 +15,7 @@ class Header extends Component {
   render(){
     return(
       <div className="header-wrapper">
-        <Navbar classname="navbar">
+        <Navbar className="navbar">
           <Navbar.Header>
             <Navbar.Brand>
               <a id="title" href="#">ProjectOverflow</a>
