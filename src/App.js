@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,11 +15,24 @@ import {
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      question: ''
+    }
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    console.log('submitted!');
+    let query = event.target.value;
+      console.log(query);
+  }
   render() {
     return (
       <Router>
         <div>
-          <Header />
+          <Header onSubmit={(event) => this.handleSubmit(event)} />
           <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/contact' component={Contact} />

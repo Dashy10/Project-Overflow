@@ -32,9 +32,11 @@ class Header extends Component {
             <NavItem href="/documentation">Documentation</NavItem>
           </Nav>
             <Navbar.Form pullLeft>
-              <FormGroup>
+            <form onSubmit={this.props.onSubmit}>
+              <FormGroup >
                 <FormControl type="text" placeholder="Search" />
               </FormGroup>
+            </form>
             </Navbar.Form>
             <Nav>
               <NavDropdown eventKey={3} title="Account" id="basic-nav-dropdown">
