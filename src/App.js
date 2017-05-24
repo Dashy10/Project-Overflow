@@ -24,10 +24,10 @@ class App extends Component {
     this.state = {
       resource:[],
       question: '',
+      allQuestions: [],
+
     }
   }
-
-  
 
   handleSubmit(event){
     event.preventDefault();
@@ -35,10 +35,36 @@ class App extends Component {
     let query = document.getElementById('newVal').value;
     console.log(query);
     this.setState({
-      questions: this.query
+      question: this.query
     })
     window.location.assign('/questions/' + query)
   }
+
+    componentWillMount(){
+    this.renderQuestions();
+  }
+
+  renderQuestions(){
+    let url = 'https://project-overflow-db.herokuapp.com/questions';
+
+    axios.get(url)
+    .then((res) => {
+    console.log('do we see data Q--->', res.data.data);
+    let data = res.data.data
+    this.setState({
+      allQuestions: data
+    })
+
+    return data.map((e) => {
+      console.log('showme the Q-->', e.question);
+      return ( <li> {e.question} </li>
+        )   
+
+    })
+
+  }) 
+}
+
   render() {
     return (
       <Router>
