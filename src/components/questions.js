@@ -8,7 +8,8 @@ class Questions extends Component{
 	render(){
 		return(
 			<div>
-				question to be asked
+				loading...
+				{this.props.handleSubmit}
 			</div>
 		)
 	}

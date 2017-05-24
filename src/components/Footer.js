@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {Bootstrap, Button, DropdownButton, MenuItem, Nav, NavItem, Navbar, NavDropdown, FormGroup, FormControl} from 'react-bootstrap';
 
 const styles = {
 	backgroundColor: 'rgb(26,26,26)',

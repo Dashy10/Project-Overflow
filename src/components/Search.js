@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 
-export default class Documentation extends Component {
+
+export default class Search extends Component {
   constructor(props){
     super(props)
   }
@@ -8,7 +9,7 @@ export default class Documentation extends Component {
   render(){
   	return(
   			<div>
-  				Documentation
+  				Search
   			</div>
   		)
   }
