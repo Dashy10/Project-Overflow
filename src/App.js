@@ -13,6 +13,7 @@ import {
   Link, Switch,NavLink
 } from 'react-router-dom';
 
+let Infant = ({ match }) => { return <div> match.params.id: { match.params.id } </div> }
 
 class App extends Component {
   constructor(props){
@@ -22,11 +23,13 @@ class App extends Component {
     }
   }
 
+
   handleSubmit(event){
     event.preventDefault();
     console.log('submitted!');
-    let query = event.target.value;
-      console.log(query);
+    let query = document.getElementById('newVal').value;
+    console.log(query);
+
   }
   render() {
     return (
@@ -37,9 +40,11 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/contact' component={Contact} />
         <Route exact path="/about" component={About} />
-        <Route exact path='/questions' component={Questions} />
+        {/* <Route exact path='/questions' component={Questions} /> */ }
+        <Route path="/questions/:id" component={Questions}></Route>  
       </Switch>
       {/* <div className="App"> */}
+      {/*<Route path="/:id" component={Infant}></Route>  Order matters*/}
       <Footer />
       {/* </div> */}
         </div>
