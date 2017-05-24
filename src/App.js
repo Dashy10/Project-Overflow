@@ -44,7 +44,10 @@ class App extends Component {
     console.log('submitted!');
     let query = document.getElementById('newVal').value;
     console.log(query);
-
+    this.setState({
+      questions: this.query
+    })
+    window.location.assign('/questions/' + query)
   }
   render() {
     return (
