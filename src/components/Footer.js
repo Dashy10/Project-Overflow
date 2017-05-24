@@ -6,11 +6,11 @@ const styles = {
 	color: 'white',
 	height: '70',
 	textAlign: 'center',
-	padding: '2.5% 0',
-	position: 'fixed',
+	padding: '2.5% 0 5% 0',
+  marginTop: '1%',
   right: '0',
   bottom: '0',
-  left: '0'
+  left: '0',
 }
 const projTitle = {
 	fontSize: '28'
