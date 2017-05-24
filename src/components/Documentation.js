@@ -44,7 +44,7 @@ componentDidMount(){
   render(){
   	return(
   			<div>
-  				Documentation
+  				<h1>Documentation</h1>
           <ul id='docs'>
            
           </ul>
