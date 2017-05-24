@@ -27,9 +27,13 @@ componentDidMount(){
       this.state.resource.map((e,i)=>{
       console.log(this.state.resource)
       let doc = document.getElementById('docs');
+      let link = document.createElement('a')
       let list = document.createElement('li');
-      list.innerHTML=res.data.data
-      doc.appendChild(list);
+      link.setAttribute('href', res.data.data[i].url);
+      /*anchor.innerHTML=res.data.data[i].url*/
+      list.innerHTML=res.data.data[i].topic
+      link.appendChild(list)
+      doc.appendChild(link);
         
     })
     })
