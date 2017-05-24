@@ -33,7 +33,7 @@ class Header extends Component {
           </Nav>
             <Navbar.Form pullLeft>
           {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
-            <form onSubmit={this.props.onSubmit}>
+            <form action="/questions" method="post" onSubmit={this.props.onSubmit}>
               <FormGroup >
                 <FormControl id='newVal' type="text" placeholder="Search" />
               </FormGroup>
