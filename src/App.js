@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Questions from './components/questions';
 import Documentation from './components/Documentation';
+import Login from './components/Login'
 import axios from 'axios';
 
 import {
@@ -26,18 +27,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    this.getAllDocuments();
-
-  }
-
-  getAllDocuments(){
-  	let url = 'https://project-overflow-db.herokuapp.com/documentation';
-  	axios.get(url)
-  	.then((res) =>{
-  		console.log(res.data)
-  	})
-  }
+  
 
   handleSubmit(event){
     event.preventDefault();
@@ -59,6 +49,7 @@ class App extends Component {
           <Route exact path='/contact' component={Contact} />
         <Route exact path="/about" component={About} />
         <Route exact path='/documentation' component={Documentation} />
+        <Route exact path='/login' component={Login} />
         {/* <Route exact path='/questions' component={Questions} /> */ }
         <Route path="/questions/:id" component={Questions}></Route>  
       </Switch>
