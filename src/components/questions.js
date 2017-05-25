@@ -42,22 +42,31 @@ class Questions extends Component{
 
 
 
-					
+
 
 
 	renderIng(){
+		let rendered = []
 		if(this.state.finddata.data !== undefined) {
-	console.log('Showing NEW RENDER DATA', this.state.finddata.data);
+			let render = this.state.finddata.data.map((e) => {
+				if (rendered.indexOf(e.question)) {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+					rendered.push(e.question)
+					return (
+						<div>
+							<div> {e.question} </div>
+							<div> {e.answer} </div>
+						</div>
+					);
+				} else {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
 
-		let render = this.state.finddata.data.map((e) => {
-			console.log("array of objects =====>", e);
-			return (<div>
-							<ul> {e.question} </ul>
-							<li> {e.answer} </li>
-							</div>
-				);
-		});
-		return render;
+					return (
+						<div>{e.answer}</div>
+					)
+				}
+			});
+			return render;
 		}
 	}
 
@@ -69,9 +78,9 @@ class Questions extends Component{
 			console.log('SHOW ME THE MONEY',e);
 			return this.state.relAnswers.filter((f) => {
 					if(f.question_id === e.question_id){
-						console.log('show me the QUESTION', e.question)		 
+						console.log('show me the QUESTION', e.question)
 						console.log('got it', f.answer)
-						return 
+						return
 					}
 			})
 		})
@@ -113,10 +122,10 @@ class Questions extends Component{
 		return(
 			<div>
 				<h1 style={styles}> {this.props.match.params.id} </h1>
-			   
+
       {this.renderIng()}
 
-					
+
 
 
 				{this.props.handleSubmit}
