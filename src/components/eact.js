@@ -11,14 +11,12 @@ class Eact extends Component{
     }
   }
 componentDidMount(){
-    this.getAllDocuments();
-    /*axios
-    .get('https://project-overflow-db.herokuapp.com/documentation')
-    .then(res => this.setState({ resource: res.data }))*/
+    this.getAllReactDocs();
+    
   }
 
-  getAllDocuments(props){
-    let url = 'https://project-overflow-db.herokuapp.com/documentation/javascript';
+  getAllReactDocs(props){
+    let url = 'https://project-overflow-db.herokuapp.com/documentation/react';
     axios.get(url)
     	
     .then((res) =>{
@@ -44,7 +42,7 @@ componentDidMount(){
 	render(){
 		return(
 			<div>
-				<h1>JavaScript</h1>
+				<h1>React</h1>
 					<ul id ='reactdocs'>
 
 					</ul>
