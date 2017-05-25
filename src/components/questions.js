@@ -31,12 +31,19 @@ class Questions extends Component{
 			console.log('whats new return-->', res.data);
 			let alldata = res.data
 			this.setState({
+
 				finddata: alldata,
 				allQuestions: alldata.questions,
-				relAnswers: alldata.answers
+        relAnswers: alldata.answers
 			})
 		})
 	}
+
+
+
+
+					
+
 
 	renderIng(){
 		if(this.state.finddata.data !== undefined) {
@@ -71,9 +78,10 @@ class Questions extends Component{
 	)
 }
 
+
 	renderAnswers(){
-		return this.state.relAnswers.map((e, i) => {
-		console.log('rendering the ANSWERS -->', e.answer);
+		return this.state.allQuestions.map((e, i) => {
+		console.log('rendering the ANSWERS -->', e.question);
 		return (
 		<li> {e.answer} </li>
 		)
@@ -105,9 +113,11 @@ class Questions extends Component{
 		return(
 			<div>
 				<h1 style={styles}> {this.props.match.params.id} </h1>
-			   	{this.renderIng()}
+			   
+      {this.renderIng()}
 
 					
+
 
 				{this.props.handleSubmit}
 			</div>
