@@ -30,35 +30,40 @@ class Questions extends Component{
 			let alldata = res.data
 			this.setState({
 				finddata: res.data,
-				allQuestions: alldata.questions,
+				allQuestions: alldata.question,
 				relAnswers: alldata.answers
 			})
 		})
 	}
 
-	renderNew(){
-		console.log('does this STATE SHOW', this.state.finddata);
-		let x = this.state.finddata;
-		console.log('THIS IS THE XXXXXXX-->', x);
-		console.log('CONVERT TO ARRAY', Object.values(x));
+// 	renderNew(){
+// 		console.log('does this STATE SHOW', this.state.finddata);
+// 		let x = this.state.finddata;
+// 		console.log('THIS IS THE XXXXXXX-->', x);
+// 		console.log('CONVERT TO ARRAY', Object.values(x));
 
-		return (this.state.allQuestions.map((e) =>{
-			return <h1> {e.question} </h1>
-			console.log('SHOW ME THE MONEY',e.question);
-			return this.state.relAnswers.filter((f) => {
-					if(f.question_id === e.question_id){
-						console.log('show me the QUESTION', e.question)		 
-						console.log('got it', f.answer)
-						return 
-					}
-			})
-		})
-	)
-}
+// 		return (this.state.allQuestions.map((e) =>{
+// 			var ques = <h1> {e.question} </h1>
+// 			return ques
+// 			console.log('SHOW ME THE MONEY',e.question);
+// 			return this.state.relAnswers.filter((f) => {
+// 					if(f.question_id === e.question_id){
+// 						console.log('show me the QUESTION', e.question)		 
+// 						console.log('got it', f.answer)
+// 						return ques
+// 					}
+// 			})
+// 		})
+// 	)
+// }
+
+
+					
+
 
 	renderAnswers(){
-		return this.state.relAnswers.map((e, i) => {
-		console.log('rendering the ANSWERS -->', e.answer);
+		return this.state.allQuestions.map((e, i) => {
+		console.log('rendering the ANSWERS -->', e.question);
 		return (
 		<li> {e.answer} </li>
 		)
@@ -93,7 +98,7 @@ class Questions extends Component{
 			<div>
 				<h1 style={styles}> {this.props.match.params.id} </h1>
 			
-				{this.renderNew()}	
+				
 
 				{this.props.handleSubmit}
 			</div>

@@ -29,7 +29,12 @@ class Header extends Component {
           <Nav>
             <NavItem href="/about">About</NavItem>
             <NavItem eventKey={2} href="/contact">Contact</NavItem>
-            <NavItem href="/documentation">Documentation</NavItem>
+            
+            <NavDropdown eventKey={3} title="Documentation" id="nav-dropdown">
+                <MenuItem eventKey={3.1} href="/eact">React</MenuItem>
+                <MenuItem eventKey={1} href="/express">Express</MenuItem>
+                <MenuItem eventKey={1} href="/javascript">JavaScript</MenuItem>
+              </NavDropdown>  
           </Nav>
             <Navbar.Form pullLeft>
           {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
