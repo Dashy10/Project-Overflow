@@ -30,6 +30,20 @@
 .flex-wrapper div{
 }
 
+.form-control{
+	width:30%;
+	margin:auto;
+}
+h1{
+	text-align: center;
+}
+
+#holder{
+   
+    width: 50%;
+    margin: auto;
+}
+
 /*footer{
 	display:flex;
 }*/
