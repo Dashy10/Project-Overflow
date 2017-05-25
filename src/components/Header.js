@@ -33,7 +33,8 @@ class Header extends Component {
             <NavDropdown eventKey={3} title="Documentation" id="nav-dropdown">
                 <MenuItem eventKey={3.1} href="/eact">React</MenuItem>
                 <MenuItem eventKey={1} href="/express">Express</MenuItem>
-                <MenuItem eventKey={1} href="/javascript">JavaScript</MenuItem>
+                <MenuItem eventKey={1} href="/javs">JavaScript</MenuItem>
+                <MenuItem eventKey={1} href="/node">Node.js</MenuItem>
               </NavDropdown>  
           </Nav>
             <Navbar.Form pullLeft>

@@ -2,9 +2,8 @@ import React,{Component} from 'react';
 import axios from 'axios'
 
 
-class Eact extends Component{
-
-		constructor(props){
+class Javs extends Component{
+	constructor(props){
     super(props)
     this.state={
       resource:[]
@@ -28,7 +27,7 @@ componentDidMount(){
       console.log(res.data.data)
       this.state.resource.map((e,i)=>{
       console.log(this.state.resource)
-      let doc = document.getElementById('reactdocs');
+      let doc = document.getElementById('javadocs');
       let link = document.createElement('a')
       let list = document.createElement('li');
       link.setAttribute('href', res.data.data[i].url);
@@ -45,7 +44,7 @@ componentDidMount(){
 		return(
 			<div>
 				<h1>JavaScript</h1>
-					<ul id ='reactdocs'>
+					<ul id ='javadocs'>
 
 					</ul>
 			</div>
@@ -54,4 +53,4 @@ componentDidMount(){
 	
 }
 
-export default Eact
+export default Javs
