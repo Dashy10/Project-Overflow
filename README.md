@@ -119,37 +119,17 @@
 |---|---|---|---|---|
 | Psuedocode | 2.5 hours  |  1 hour  | 100%  | 1 hour  |
 | Database Setup  | 3 hours  |  1 hour  | 100%  | 1 hour  |
-| Express Application  | 1 hour  | 30 minutes  |  | n/a  |
-| React Application non-functional | 3.5 hours  |   |   |   |
+| Express Application  | 1 hour  | 30 minutes  | 100% | 30 minutes  |
+|React Application non-functional|3.5 hours|2 hours | 100% |2 Hours  |
 |  React w/ functionality | 15 hours  |   |   |   |
+|  Backend functionality | 6 hours  |   |   |   |
 |  Design layout | 5 hours  |   |   |   |
+|  Full deployment | 1 hour  |   |   |   |
 | Post MVP implementations  | 10 hours  |    |   | n/a  |
 
 ## Workflow
- *Team* 
  
- * Header 
- * Footer
- * SQL
- * React
- * Heroku app
- * Express application
- * Title
-
- *Kyle*
-
-* About
-* Documentation
- 
- *Ed*  
- 
-* Contact
-* Searchbar
- 
- *Dash* 
- 
-* Login
-* Account
+ Workflow can be viewed on our [Team Board](https://github.com/Dashy10/Project-Overflow#boards?repos=91987578)
 	 
 	 
 ## User Stories
