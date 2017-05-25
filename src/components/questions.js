@@ -39,19 +39,22 @@ class Questions extends Component{
 	renderNew(){
 		console.log('does this STATE SHOW', this.state.finddata);
 		let x = this.state.finddata;
+		console.log('THIS IS THE XXXXXXX-->', x);
 		console.log('CONVERT TO ARRAY', Object.values(x));
-		let y = Object.values(x);
-		console.log('THIS IS Y-->', y);
-		y.map((data) => {
-			console.log('SPLITTING ARRAY -->', data);
-			console.log('SPLITTING Object -->', data[0]);
-			
+
+		return (this.state.allQuestions.map((e) =>{
+			return <h1> {e.question} </h1>
+			console.log('SHOW ME THE MONEY',e.question);
+			return this.state.relAnswers.filter((f) => {
+					if(f.question_id === e.question_id){
+						console.log('show me the QUESTION', e.question)		 
+						console.log('got it', f.answer)
+						return 
+					}
+			})
 		})
-		return this.state.relAnswers.map((e, i) => {
-			console.log('RENDERING NEW info-->', e.answers);
-			return ( <p> {e.answers} </p> )
-		})
-	}
+	)
+}
 
 	renderAnswers(){
 		return this.state.relAnswers.map((e, i) => {
