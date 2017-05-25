@@ -7,10 +7,12 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Questions from './components/questions';
 import Documentation from './components/Documentation';
-import Login from './components/Login'
+import Login from './components/Login';
 import axios from 'axios';
-import Eact from'./components/eact'
-import Express from './components/express'
+import Eact from'./components/eact';
+import Express from './components/express';
+import Javs from './components/javs';
+import Node from './components/node';
 
 import {
   BrowserRouter as Router,
@@ -80,6 +82,8 @@ class App extends Component {
         <Route exact path='/login' component={Login} />
         <Route exact path='/eact' component={Eact} />
         <Route exact path='/express' component={Express} />
+        <Route exact path='/javs' component={Javs} />
+        <Route exact path='/node' component={Node} />
 
         {/* <Route exact path='/questions' component={Questions} /> */ }
         <Route path="/questions/:id" component={Questions}></Route>  
