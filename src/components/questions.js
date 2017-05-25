@@ -15,10 +15,12 @@ class Questions extends Component{
 			allQuestions: [],
 			relAnswers: [],
 		}
+		this.renderIng = this.renderIng.bind(this);
+		this.checkNewUrl = this.checkNewUrl.bind(this);
 	}
 
 	componentWillMount(){
-		this.renderQuestions();
+		// this.renderQuestions();
 		this.checkNewUrl();
 	}
 
@@ -29,36 +31,52 @@ class Questions extends Component{
 			console.log('whats new return-->', res.data);
 			let alldata = res.data
 			this.setState({
-				finddata: res.data,
-				allQuestions: alldata.question,
-				relAnswers: alldata.answers
+
+				finddata: alldata,
+				allQuestions: alldata.questions,
+        relAnswers: alldata.answers
 			})
 		})
 	}
 
-// 	renderNew(){
-// 		console.log('does this STATE SHOW', this.state.finddata);
-// 		let x = this.state.finddata;
-// 		console.log('THIS IS THE XXXXXXX-->', x);
-// 		console.log('CONVERT TO ARRAY', Object.values(x));
 
-// 		return (this.state.allQuestions.map((e) =>{
-// 			var ques = <h1> {e.question} </h1>
-// 			return ques
-// 			console.log('SHOW ME THE MONEY',e.question);
-// 			return this.state.relAnswers.filter((f) => {
-// 					if(f.question_id === e.question_id){
-// 						console.log('show me the QUESTION', e.question)		 
-// 						console.log('got it', f.answer)
-// 						return ques
-// 					}
-// 			})
-// 		})
-// 	)
-// }
 
 
 					
+
+
+	renderIng(){
+		if(this.state.finddata.data !== undefined) {
+	console.log('Showing NEW RENDER DATA', this.state.finddata.data);
+
+		let render = this.state.finddata.data.map((e) => {
+			console.log("array of objects =====>", e);
+			return (<div>
+							<ul> {e.question} </ul>
+							<li> {e.answer} </li>
+							</div>
+				);
+		});
+		return render;
+		}
+	}
+
+	renderNew(){
+		console.log('does this STATE SHOW', this.state.allQuestions);
+
+		return (this.state.allQuestions.map((e) =>{
+			// return <h1> {e.question} </h1>
+			console.log('SHOW ME THE MONEY',e);
+			return this.state.relAnswers.filter((f) => {
+					if(f.question_id === e.question_id){
+						console.log('show me the QUESTION', e.question)		 
+						console.log('got it', f.answer)
+						return 
+					}
+			})
+		})
+	)
+}
 
 
 	renderAnswers(){
@@ -72,11 +90,10 @@ class Questions extends Component{
 
 	renderQuestions(){
 		let url = 'https://project-overflow-db.herokuapp.com/questions';
-
 		axios.get(url)
 		.then((res) => {
 		console.log('do we see data Q--->', res.data.data);
-		let data = res.data.data
+		// let data = res.data.data
 		// this.setState({
 		// 	allQuestions: data
 		// })
@@ -84,7 +101,6 @@ class Questions extends Component{
 }
 
 	renderQ(){
-		console.log('renderQ allQssss', this.state.allQuestions);
 		return this.state.allQuestions.map((e, i) => {
 			console.log('e infoooo', e.question);
 		return (
@@ -97,8 +113,11 @@ class Questions extends Component{
 		return(
 			<div>
 				<h1 style={styles}> {this.props.match.params.id} </h1>
-			
-				
+			   
+      {this.renderIng()}
+
+					
+
 
 				{this.props.handleSubmit}
 			</div>
