@@ -53,9 +53,16 @@ h1 {
   font-size: 12pt;
   text-decoration: underline;
 }
+.aboutCols {
+  box-shadow: 0px 0px 0px #888888;
+}
+.aboutCols:hover {
+  box-shadow: 0px 20px 10px #888888;
+}
+
 
 li {
-  list-style: none;
+/*  list-style: none;*/
 }
 
 .flex-wrapper-no-duplicate{
