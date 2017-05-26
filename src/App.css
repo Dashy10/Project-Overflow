@@ -57,3 +57,17 @@ h1 {
 li {
   list-style: none;
 }
+
+.flex-wrapper-no-duplicate{
+	display: flex;
+	max-width: 1000px;
+
+}
+
+#resource-column{
+	flex:1
+}
+
+/*#question-column {
+	display:flex;
+}*/
