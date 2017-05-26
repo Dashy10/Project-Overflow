@@ -49,7 +49,7 @@ h1{
 }*/
 .javascript-wrapper{
 }
-.javascript-questions {
+.questions-no-duplicate {
 	width: 500px;
 	margin: 0 auto;
 	display: flex;
@@ -61,7 +61,20 @@ h1{
 	display: flex;
 }
 #javadocs {
-	position:absolute;
-	bottom: 800px;
 	width: 80%;
+}
+
+.ul-wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border: 5px solid black;
+}
+
+.documentation-title{
+	font-size: 12pt;
+	text-decoration: underline;
+}
+li {
+	list-style: none;
 }

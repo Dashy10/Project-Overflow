@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 class Express extends Component{
-	
+
 	constructor(props){
 	    super(props)
 	    this.state={
@@ -24,7 +24,7 @@ componentDidMount(){
   getAllExpressDocs(props){
     let url = 'https://project-overflow-db.herokuapp.com/documentation/express';
     axios.get(url)
-    	
+
     .then((res) =>{
       this.setState({
         resource: res.data.data
@@ -39,10 +39,10 @@ componentDidMount(){
       list.innerHTML=res.data.data[i].topic
       link.appendChild(list)
       doc.appendChild(link);
-        
+
     })
     })
-    
+
   }
 
   checkNewUrl(){
@@ -63,7 +63,7 @@ componentDidMount(){
 
 
 
-					
+
 
 
 	renderIng(){
@@ -74,7 +74,7 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 					rendered.push(e.question)
 					return (
-						<div>
+						<div className='questions-no-duplicate'>
 							<h4> {e.question} </h4>
 							<div> {e.answer} </div>
 						</div>
@@ -83,24 +83,28 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 
 					return (
-						<div>{e.answer}</div>
+						<div className='questions-no-duplicate'>{e.answer}</div>
 					)
 				}
 			});
 			return render;
 		}
 	}
-	
+
 	render(){
 		return(
 			<div>
 				<h1>Express</h1>
+				<div>{this.renderIng()}</div>
 					<ul id ='expressdocs'>
-						{this.renderIng()}
+						<span className='documentation-title'>
+						Express Documentation and Resources
+						</span>
+
 					</ul>
 			</div>
 		)
 	}
-	
+
 }
 export default Express
