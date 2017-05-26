@@ -5,22 +5,16 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import Questions from './components/Questions';
+import Questions from './components/questions';
 import Topics from './components/Topics';
 import Login from './components/Login';
 import axios from 'axios';
 import ReactInfo from './components/ReactInfo';
-import Express from './components/Express';
+import Express from './components/express';
 import JavaScriptInfo from './components/JavaScriptInfo';
-import Node from './components/Node';
+import Node from './components/node';
 
 import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
-
-let Infant = ({match}) => {
-  return <div>
-    match.params.id: {match.params.id}
-  </div>
-}
 
 class App extends Component {
   constructor(props) {
@@ -35,10 +29,10 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('submitted!');
-    let query = document.getElementById('newVal').value;
+    let query = document.getElementById('newVal').value.toLowerCase();
     console.log(query);
     this.setState({question: this.query})
-    window.location.assign('/questions/' + query)
+    window.location.assign('/topics/' + query)
   }
 
   componentWillMount() {
