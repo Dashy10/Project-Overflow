@@ -16,12 +16,6 @@ import Node from './components/node';
 
 import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
 
-let Infant = ({match}) => {
-  return <div>
-    match.params.id: {match.params.id}
-  </div>
-}
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -35,10 +29,10 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('submitted!');
-    let query = document.getElementById('newVal').value;
+    let query = document.getElementById('newVal').value.toLowerCase();
     console.log(query);
     this.setState({question: this.query})
-    window.location.assign('/questions/' + query)
+    window.location.assign('/topics/' + query)
   }
 
   componentWillMount() {
