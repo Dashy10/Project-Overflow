@@ -13,6 +13,7 @@ import ReactInfo from './components/ReactInfo';
 import Express from './components/express';
 import JavaScriptInfo from './components/JavaScriptInfo';
 import Node from './components/node';
+import Answers from './components/Answers';
 
 import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
 
@@ -79,6 +80,7 @@ class App extends Component {
             <Route exact path='/topics/javascript' component={JavaScriptInfo}/>
             <Route exact path='/topics/nodejs' component={Node}/> {/* <Route exact path='/questions' component={Questions} /> */}
             <Route path="/questions/:id" component={Questions}></Route>
+            <Route path='/answers' component={Answers}></Route>
           </Switch>
           {/*<Route path="/:id" component={Infant}></Route>  Order matters*/}
           <Footer/>
