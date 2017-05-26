@@ -4,15 +4,21 @@ import axios from 'axios'
 
 class Eact extends Component{
 
-		constructor(props){
+	constructor(props){
     super(props)
     this.state={
-      resource:[]
+      resource:[],
+      finddata: [],
+	  allQuestions: [],
+      relAnswers: [],
     }
+        this.renderIng = this.renderIng.bind(this);
+		this.checkNewUrl = this.checkNewUrl.bind(this);
   }
 componentDidMount(){
     this.getAllReactDocs();
-    
+    this.renderIng();
+    this.checkNewUrl()
   }
 
   getAllReactDocs(props){
@@ -38,13 +44,59 @@ componentDidMount(){
     })
     
   }
+
+  checkNewUrl(){
+		let newUrl = 'https://project-overflow-db.herokuapp.com/QA/3'
+		axios.get(newUrl)
+		.then((res) => {
+			console.log('whats new return-->', res.data);
+			let alldata = res.data
+			this.setState({
+
+				finddata: alldata,
+				allQuestions: alldata.questions,
+        relAnswers: alldata.answers
+			})
+		})
+	}
+
+
+
+
+					
+
+
+	renderIng(){
+		let rendered = []
+		if(this.state.finddata.data !== undefined) {
+			let render = this.state.finddata.data.map((e) => {
+				if (rendered.indexOf(e.question)) {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+					rendered.push(e.question)
+					return (
+						<div>
+							<h4> {e.question} </h4>
+							<div> {e.answer} </div>
+						</div>
+					);
+				} else {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+
+					return (
+						<div>{e.answer}</div>
+					)
+				}
+			});
+			return render;
+		}
+	}
 	
 	render(){
 		return(
 			<div>
 				<h1>React</h1>
 					<ul id ='reactdocs'>
-
+						{this.renderIng()}
 					</ul>
 			</div>
 		)
