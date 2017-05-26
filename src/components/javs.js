@@ -6,14 +6,18 @@ class Javs extends Component{
 	constructor(props){
     super(props)
     this.state={
-      resource:[]
+      resource:[],
+      finddata: [],
+	  allQuestions: [],
+      relAnswers: [],
     }
+        this.renderIng = this.renderIng.bind(this);
+		this.checkNewUrl = this.checkNewUrl.bind(this);
   }
 componentDidMount(){
     this.getAllDocuments();
-    /*axios
-    .get('https://project-overflow-db.herokuapp.com/documentation')
-    .then(res => this.setState({ resource: res.data }))*/
+    this.renderIng();
+    this.checkNewUrl()
   }
 
   getAllDocuments(props){
@@ -39,13 +43,52 @@ componentDidMount(){
     })
     
   }
+
+
+
+  checkNewUrl(){
+		let newUrl = 'https://project-overflow-db.herokuapp.com/QA/1'
+		axios.get(newUrl)
+		.then((res) => {
+			console.log('whats new return-->', res.data);
+			let alldata = res.data
+			this.setState({
+
+				finddata: alldata,
+				allQuestions: alldata.questions,
+        relAnswers: alldata.answers
+			})
+		})
+	}
+
+
+
+
+					
+
+
+	renderIng(){
+		if(this.state.finddata.data !== undefined) {
+	console.log('Showing NEW RENDER DATA', this.state.finddata.data);
+
+		let render = this.state.finddata.data.map((e) => {
+			console.log("array of objects =====>", e);
+			return (<div>
+							<ul> {e.question} </ul>
+							<li> {e.answer} </li>
+							</div>
+				);
+		});
+		return render;
+		}
+	}
 	
 	render(){
 		return(
 			<div>
 				<h1>JavaScript</h1>
 					<ul id ='javadocs'>
-
+						{this.renderIng()}
 					</ul>
 			</div>
 		)
