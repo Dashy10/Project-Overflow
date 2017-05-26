@@ -22,13 +22,15 @@ class App extends Component {
     this.state = {
       resource: [],
       question: '',
-      allQuestions: []
+      allQuestions: [],
+      search: ''
     }
   }
 
   handleSubmit(event) {
     event.preventDefault();
     console.log('submitted!');
+    console.log(event);
     let query = document.getElementById('newVal').value.toLowerCase();
     console.log(query);
     this.setState({question: this.query})
@@ -64,7 +66,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header onSubmit={(event) => this.handleSubmit(event)}/>
+          <Header value={this.state.search}
+          onSubmit={(event) => this.handleSubmit(event)} />
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/contact' component={Contact}/>
