@@ -68,18 +68,27 @@ componentDidMount(){
 
 
 	renderIng(){
+		let rendered = []
 		if(this.state.finddata.data !== undefined) {
-	console.log('Showing NEW RENDER DATA', this.state.finddata.data);
+			let render = this.state.finddata.data.map((e) => {
+				if (rendered.indexOf(e.question)) {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+					rendered.push(e.question)
+					return (
+						<div>
+							<h4> {e.question} </h4>
+							<div> {e.answer} </div>
+						</div>
+					);
+				} else {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
 
-		let render = this.state.finddata.data.map((e) => {
-			console.log("array of objects =====>", e);
-			return (<div>
-							<ul> {e.question} </ul>
-							<li> {e.answer} </li>
-							</div>
-				);
-		});
-		return render;
+					return (
+						<div>{e.answer}</div>
+					)
+				}
+			});
+			return render;
 		}
 	}
 	
