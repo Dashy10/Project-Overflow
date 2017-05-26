@@ -1,7 +1,6 @@
-import React,{Component} from 'react';
-import { Image, Grid, Row, Col } from 'react-bootstrap';
-// import Header from './Header'
-// import Footer from './Footer'
+import React, {Component} from 'react';
+import {Image, Grid, Row, Col} from 'react-bootstrap';
+
 const title = {
   fontSize: '36',
   textAlign: 'center',
@@ -18,13 +17,13 @@ const profileImages = (
   <Grid>
     <Row>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" circle />
+        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" circle/>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" circle />
+        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" circle/>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg" circle />
+        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg" circle/>
       </Col>
     </Row>
   </Grid>
@@ -34,7 +33,9 @@ const bioDetails = (
   <Grid>
     <Row>
       <Col xs={6} md={4}>
-        <ul style={{listStyle: 'none'}} sm={6} md={3}>
+        <ul style={{
+          listStyle: 'none'
+        }} sm={6} md={3}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
           <li>LinkedIn: Ipsum</li>
@@ -43,7 +44,9 @@ const bioDetails = (
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
       </Col>
       <Col xs={6} md={4}>
-        <ul style={{listStyle: 'none'}} xs={6} md={4}>
+        <ul style={{
+          listStyle: 'none'
+        }} xs={6} md={4}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
           <li>LinkedIn: Ipsum</li>
@@ -52,7 +55,9 @@ const bioDetails = (
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
       </Col>
       <Col xs={6} md={4}>
-        <ul style={{listStyle: 'none'}} xs={6} md={4}>
+        <ul style={{
+          listStyle: 'none'
+        }} xs={6} md={4}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
           <li>LinkedIn: Ipsum</li>
@@ -64,23 +69,24 @@ const bioDetails = (
   </Grid>
 );
 
-export default class About extends Component {
-  constructor(props){
+class Contact extends Component {
+  constructor(props) {
     super(props)
   }
 
-  render(){
-    return(
-        <div className='flex-wrapper'>
-        <h2 style={title}> Meet The Team </h2>
-          {profileImages}
-          {bioDetails}
-          
-        </div>
-          
-      )
+  render() {
+    return (
+      <div className='flex-wrapper'>
+        <h2 style={title}>
+          Meet The Team
+        </h2>
+        {profileImages}
+        {bioDetails}
+
+      </div>
+
+    )
   }
 }
 
-
-
+export default Contact;

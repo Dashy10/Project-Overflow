@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class Express extends Component {
+class ReactInfo extends Component {
 
   constructor(props) {
     super(props)
@@ -15,19 +15,19 @@ class Express extends Component {
     this.checkNewUrl = this.checkNewUrl.bind(this);
   }
   componentDidMount() {
-    this.getAllExpressDocs();
+    this.getAllReactDocs();
     this.renderIng();
     this.checkNewUrl()
   }
 
-  getAllExpressDocs(props) {
-    let url = 'https://project-overflow-db.herokuapp.com/documentation/express';
+  getAllReactDocs(props) {
+    let url = 'https://project-overflow-db.herokuapp.com/documentation/react';
     axios.get(url).then((res) => {
       this.setState({resource: res.data.data})
       console.log(res.data.data)
       this.state.resource.map((e, i) => {
         console.log(this.state.resource)
-        let doc = document.getElementById('expressdocs');
+        let doc = document.getElementById('reactdocs');
         let link = document.createElement('a')
         let list = document.createElement('li');
         link.setAttribute('href', res.data.data[i].url);
@@ -41,7 +41,7 @@ class Express extends Component {
   }
 
   checkNewUrl() {
-    let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
+    let newUrl = 'https://project-overflow-db.herokuapp.com/QA/3'
     axios.get(newUrl).then((res) => {
       console.log('whats new return-->', res.data);
       let alldata = res.data
@@ -81,17 +81,17 @@ class Express extends Component {
   render() {
     return (
       <div>
-        <h1>Express</h1>
+        <h1>React</h1>
         <div>{this.renderIng()}</div>
-        <ul id='expressdocs'>
+        <ul id='reactdocs'>
           <span className='documentation-title'>
-            Express Documentation and Resources
+            React Documentation and Resources
           </span>
-
         </ul>
       </div>
     )
   }
 
 }
-export default Express;
+
+export default ReactInfo;

@@ -1,35 +1,32 @@
-import React,{Component} from 'react'
-import {FormControl,Form,FormGroup,Col} from 'react-bootstrap';
+import React, {Component} from 'react'
+import {FormControl, Form, FormGroup, Col} from 'react-bootstrap';
 
+class Login extends Component {
 
-class Login extends Component{
+  render() {
+    return (
+      <div id='holder'>
+        <h1>Login</h1>
+        <div>
+          <Form horizontal/>
+          <FormGroup controlId="formHorizontalEmail">
 
+            <Col>
+              <FormControl type="email" placeholder="Email"/>
+            </Col>
+          </FormGroup>
 
+          <FormGroup controlId="formHorizontalPassword">
 
-	render(){
-		return(
- <div id='holder'>
- 				<h1>Login</h1>
-	<div>
-			<Form horizontal/>
-    			<FormGroup controlId="formHorizontalEmail">
-      				
-      					<Col>
-       		    <FormControl type="email" placeholder="Email" />
-      					</Col>
-    			</FormGroup>
+            <Col>
+              <FormControl type="password" placeholder="Password"/>
+            </Col>
+          </FormGroup>
+        </div>
 
-      			<FormGroup controlId="formHorizontalPassword">
-      				
-      					<Col>
-        		<FormControl type="password" placeholder="Password" />
-      				</Col>
-    	       </FormGroup>
-    </div>
-      			
- </div>
-		)
-	}
+      </div>
+    )
+  }
 }
 
-export default Login
+export default Login;

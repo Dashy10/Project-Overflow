@@ -1,16 +1,17 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
-
-export default class Search extends Component {
-  constructor(props){
+class Search extends Component {
+  constructor(props) {
     super(props)
   }
 
-  render(){
-  	return(
-  			<div>
-  				Search
-  			</div>
-  		)
+  render() {
+    return (
+      <div>
+        Search
+      </div>
+    )
   }
 }
+
+export default Search;

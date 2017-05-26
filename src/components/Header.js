@@ -1,23 +1,29 @@
-import React,{Component} from 'react';
-import {Bootstrap, Button, DropdownButton, MenuItem, Nav, NavItem, Navbar, NavDropdown, FormGroup, FormControl} from 'react-bootstrap';
+import React, {Component} from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link, Switch,NavLink
-} from 'react-router-dom'
+  Bootstrap,
+  Button,
+  DropdownButton,
+  MenuItem,
+  Nav,
+  NavItem,
+  Navbar,
+  NavDropdown,
+  FormGroup,
+  FormControl
+} from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom'
 import About from './About';
-import Instructions from './Instructions';
 import Account from './Account';
-import Documentation from './Documentation';
+import Topics from './Topics';
 import Contact from './Contact';
 
 class Header extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="header-wrapper">
         <Navbar className="navbar">
           <Navbar.Header>
@@ -31,36 +37,34 @@ class Header extends Component {
             <NavItem eventKey={2} href="/contact">Contact</NavItem>
 
             <NavDropdown eventKey={3} title="Topics" id="nav-dropdown">
-                <MenuItem eventKey={3.1} href="/eact">React</MenuItem>
-                <MenuItem eventKey={1} href="/express">Express</MenuItem>
-                <MenuItem eventKey={1} href="/javs">JavaScript</MenuItem>
-                <MenuItem eventKey={1} href="/node">Node.js</MenuItem>
-              </NavDropdown>
+              <MenuItem eventKey={3.1} href="/topics/react">React</MenuItem>
+              <MenuItem eventKey={1} href="/topics/express">Express</MenuItem>
+              <MenuItem eventKey={1} href="/topics/javascript">JavaScript</MenuItem>
+              <MenuItem eventKey={1} href="/topics/nodejs">Node.js</MenuItem>
+            </NavDropdown>
           </Nav>
-            <Navbar.Form pullLeft>
-          {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
+          <Navbar.Form pullLeft>
+            {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
             <form action="/questions" method="post" onSubmit={this.props.onSubmit}>
               <FormGroup >
-                <FormControl id='newVal' type="text" placeholder="Search" />
+                <FormControl id='newVal' type="text" placeholder="Search"/>
               </FormGroup>
             </form>
-            </Navbar.Form>
-            <Nav>
-              <NavDropdown eventKey={3} title="Account" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>My Profile</MenuItem>
-                <MenuItem eventKey={1} href="#">Logout</MenuItem>
-                <MenuItem eventKey={1} href="/login">Login</MenuItem>
-              </NavDropdown>
+          </Navbar.Form>
+          <Nav>
+            <NavDropdown eventKey={3} title="Account" id="basic-nav-dropdown">
+              <MenuItem eventKey={3.1}>My Profile</MenuItem>
+              <MenuItem eventKey={1} href="#">Logout</MenuItem>
+              <MenuItem eventKey={1} href="/login">Login</MenuItem>
+            </NavDropdown>
 
-            </Nav>
-          </Navbar>
+          </Nav>
+        </Navbar>
       </div>
 
     )
   }
 
 }
-
-
 
 export default Header;
