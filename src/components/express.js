@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Express extends Component {
 
@@ -52,6 +53,10 @@ class Express extends Component {
     })
   }
 
+  // renderIng(){
+  //   let url ='https://project-overflow-db.herokuapp.com/Questions'
+  // }
+
   renderIng() {
     let rendered = []
     if (this.state.finddata.data !== undefined) {
@@ -62,7 +67,7 @@ class Express extends Component {
           return (
             <div className='questions-no-duplicate'>
               <h4>
-                {e.question}
+                <Link to={'/answers'}>{e.question}</Link>
               </h4>
               <div>
                 {e.answer}
@@ -93,6 +98,13 @@ class Express extends Component {
       })
    }
 
+  /* answerQuestion(event){
+    event.preventDefault();
+    let url =''
+    let 
+   }
+   */
+
    
   
   
@@ -109,7 +121,7 @@ class Express extends Component {
 
         </ul>
           <input type='text' id = 'ques'/>
-          <button  onClick={this.askQuestion}/>
+          <button  onClick={this.askQuestion}>Submit</button>
         
       </div>
     )
