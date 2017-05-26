@@ -8,8 +8,8 @@ const title = {
 }
 
 const styles = {
-  height: '300',
-  width: '300',
+  height: '250',
+  width: '250',
   margin: '2.5%'
 }
 
@@ -17,17 +17,25 @@ const profileImages = (
   <Grid>
     <Row>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" circle/>
+        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/dash_zpsrcuwn7si.jpeg" circle/>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" circle/>
+        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/linkedinpic_zpsgjmixare.jpg" circle/>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg" circle/>
+        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/kyle_zpssro6q31i.jpeg" circle/>
       </Col>
     </Row>
   </Grid>
 );
+
+const socialTabs = (
+  <div style={{display: 'inlineBlock', width: '90%'}}>
+  <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px' }} src='https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300' />
+  <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'  }} src='https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png' />
+  </div>
+  )
+  
 
 const bioDetails = (
   <Grid>
@@ -38,8 +46,7 @@ const bioDetails = (
         }} sm={6} md={3}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
-          <li>LinkedIn: Ipsum</li>
-          <li>Github: Other stuff</li>
+          <li> {socialTabs} </li>
         </ul>
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
       </Col>
@@ -49,8 +56,7 @@ const bioDetails = (
         }} xs={6} md={4}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
-          <li>LinkedIn: Ipsum</li>
-          <li>Github: Other stuff</li>
+          <li> {socialTabs} </li>
         </ul>
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
       </Col>
@@ -60,8 +66,7 @@ const bioDetails = (
         }} xs={6} md={4}>
           <li>Name: Lorem</li>
           <li>Username: loRem</li>
-          <li>LinkedIn: Ipsum</li>
-          <li>Github: Other stuff</li>
+          <li> {socialTabs} </li>
           <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
       </Col>
