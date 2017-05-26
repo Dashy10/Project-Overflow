@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import {Bootstrap, ListGroup, ListGroupItem} from 'react-bootstrap';
 
 
 class Javs extends Component{
@@ -23,7 +24,7 @@ componentDidMount(){
   getAllDocuments(props){
     let url = 'https://project-overflow-db.herokuapp.com/documentation/javascript';
     axios.get(url)
-    	
+
     .then((res) =>{
       this.setState({
         resource: res.data.data
@@ -38,10 +39,10 @@ componentDidMount(){
       list.innerHTML=res.data.data[i].topic
       link.appendChild(list)
       doc.appendChild(link);
-        
+
     })
     })
-    
+
   }
 
 
@@ -64,7 +65,7 @@ componentDidMount(){
 
 
 
-					
+
 
 
 	renderIng(){
@@ -75,7 +76,7 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 					rendered.push(e.question)
 					return (
-						<div>
+						<div className='javascript-questions'>
 							<h4> {e.question} </h4>
 							<div> {e.answer} </div>
 						</div>
@@ -84,25 +85,34 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 
 					return (
-						<div>{e.answer}</div>
+						<div className='javascript-questions'>{e.answer}</div>
 					)
 				}
 			});
 			return render;
 		}
 	}
-	
+
 	render(){
 		return(
-			<div>
+			<div className='javascript-wrapper'>
 				<h1>JavaScript</h1>
-					<ul id ='javadocs'>
-						{this.renderIng()}
-					</ul>
+				<div>{
+					this.renderIng()}
+				</div>
+				<div className='javascript-documentation'>
+					<ul id ='javadocs'></ul>
+				</div>
+				{/* <ListGroup id='javadocs'>
+	 <ListGroupItem>Item 1</ListGroupItem>
+	 <ListGroupItem>Item 2</ListGroupItem>
+	 <ListGroupItem>...</ListGroupItem>
+ </ListGroup> */}
+
 			</div>
 		)
 	}
-	
+
 }
 
 export default Javs
