@@ -121,9 +121,9 @@
 | Database Setup  | 3 hours  |  1 hour  | 100%  | 1 hour  |
 | Express Application  | 1 hour  | 30 minutes  | 100% | 30 minutes  |
 |React Application non-functional|3.5 hours|2 hours | 100% |2 Hours  |
-|  React w/ functionality | 15 hours  |   |   |   |
-|  Backend functionality | 6 hours  |   |   |   |
-|  Design layout | 5 hours  |   |   |   |
+|  React w/ functionality | 15 hours  |  12 | 60%  |   |
+|  Backend functionality | 6 hours  | 3  |  100% |  3 hours |
+|  Design layout | 5 hours  | 5  | 85%  | 5  |
 |  Full deployment | 1 hour  |   |   |   |
 | Post MVP implementations  | 10 hours  |    |   | n/a  |
 
@@ -169,9 +169,30 @@
 ## Code Example
 
 ```
-function yeahright() {
-	console.log('nice try')
-}
+renderIng(){
+		let rendered = []
+		if(this.state.finddata.data !== undefined) {
+			let render = this.state.finddata.data.map((e) => {
+				if (rendered.indexOf(e.question)) {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+					rendered.push(e.question)
+					return (
+						<div>
+							<div> {e.question} </div>
+							<div> {e.answer} </div>
+						</div>
+					);
+				} else {
+					console.log(e.question, rendered, rendered.indexOf(e.question))
+
+					return (
+						<div>{e.answer}</div>
+					)
+				}
+			});
+			return render;
+		}
+	}
 ```
 
 ## Contributing
