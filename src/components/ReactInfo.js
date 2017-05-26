@@ -80,18 +80,23 @@ class ReactInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div className='react-wrapper'>
         <h1>React</h1>
-        <div>{this.renderIng()}</div>
-        <ul id='reactdocs'>
-          <span className='documentation-title'>
-            React Documentation and Resources
-          </span>
-        </ul>
+        <div className='flex-wrapper-no-duplicate'>
+          <div id='resource-column'>
+            <ul id='reactdocs'>
+              <span className='documentation-title'>
+                React Documentation and Resources
+              </span>
+            </ul>
+          </div>
+          <div id='question-column'>
+            {this.renderIng()}
+          </div>
+        </div>
       </div>
     )
   }
-
 }
 
 export default ReactInfo;

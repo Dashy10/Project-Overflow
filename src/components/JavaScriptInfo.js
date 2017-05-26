@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Bootstrap, ListGroup, ListGroupItem} from 'react-bootstrap';
+// import './App.css';
 
 class JavaScriptInfo extends Component {
   constructor(props) {
@@ -51,10 +52,11 @@ class JavaScriptInfo extends Component {
 
   renderIng() {
     let rendered = []
+
     if (this.state.finddata.data !== undefined) {
       let render = this.state.finddata.data.map((e) => {
-        if (rendered.indexOf(e.question)) {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
+        if (rendered.indexOf(e.question) === -1) {
+          console.log('Can we look at this plz====>',e.question, rendered, rendered.indexOf(e.question))
           rendered.push(e.question)
           return (
             <div className='questions-no-duplicate'>
@@ -70,7 +72,11 @@ class JavaScriptInfo extends Component {
           console.log(e.question, rendered, rendered.indexOf(e.question))
 
           return (
-            <div className='questions-no-duplicate'>{e.answer}</div>
+            <div className='questions-no-duplicate'>
+              <div className='answer-column'>
+                {e.answer}
+              </div>
+            </div>
           )
         }
       });
@@ -82,20 +88,25 @@ class JavaScriptInfo extends Component {
     return (
       <div className='javascript-wrapper'>
         <h1>JavaScript</h1>
-        <div>{this.renderIng()}
+        <div className='flex-wrapper-no-duplicate'>
+          <div id='resource-column'>
+            <ul id='javadocs'>
+              <span className='documentation-title'>
+                JavaScript Documentation and Resources
+              </span>
+            </ul>
+          </div>
+          <div id='question-column'>
+            {this.renderIng()}
+          </div>
+
         </div>
-        <div className='javascript-documentation'>
-          <ul id='javadocs'>
-            <span className='documentation-title'>
-              JavaScript Documentation and Resources
-            </span>
-          </ul>
-        </div>
-        {/* <ListGroup id='javadocs'>
-	 <ListGroupItem>Item 1</ListGroupItem>
-	 <ListGroupItem>Item 2</ListGroupItem>
-	 <ListGroupItem>...</ListGroupItem>
- </ListGroup> */}
+
+
+
+        {/* <div className='questions-no-duplicate'>
+
+        </div> */}
 
       </div>
     )

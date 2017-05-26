@@ -80,16 +80,24 @@ class Node extends Component {
 
   render() {
     return (
-      <div>
+      <div className='node-wrapper'>
         <h1>Node.js</h1>
-        <div>{this.renderIng()}</div>
+        <div className='flex-wrapper-no-duplicate'>
+          <div id='resource-column'>
+            <ul id='nodedocs'>
+              <span className='documentation-title'>
+                Node.js Documentation and Resources
+              </span>
+            </ul>
+          </div>
+          <div id='question-column'>
+            {this.renderIng()}
+          </div>
+        </div>
 
-        <ul id='nodedocs'>
-          <span className='documentation-title'>
-            Node.js Documentation and Resources
-          </span>
-        </ul>
       </div>
+
+
     )
   }
 

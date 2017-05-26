@@ -35,10 +35,14 @@ class Questions extends Component {
 
   renderIng() {
     let rendered = []
+
     if (this.state.finddata.data !== undefined) {
+      console.log('This is before rendered ======>', rendered);
       let render = this.state.finddata.data.map((e) => {
         if (rendered.indexOf(e.question)) {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
+          console.log('This is render ======>', rendered)
+          // console.log(e.question, rendered, rendered.indexOf(e.question))
+
           rendered.push(e.question)
           return (
             <div>
@@ -51,8 +55,8 @@ class Questions extends Component {
             </div>
           );
         } else {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
-
+          // console.log(e.question, rendered, rendered.indexOf(e.question))
+          console.log('This is e.question ===>', e.question)
           return (
             <div>{e.answer}</div>
           )
