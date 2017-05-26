@@ -76,7 +76,7 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 					rendered.push(e.question)
 					return (
-						<div className='javascript-questions'>
+						<div className='questions-no-duplicate'>
 							<h4> {e.question} </h4>
 							<div> {e.answer} </div>
 						</div>
@@ -85,7 +85,7 @@ componentDidMount(){
 					console.log(e.question, rendered, rendered.indexOf(e.question))
 
 					return (
-						<div className='javascript-questions'>{e.answer}</div>
+						<div className='questions-no-duplicate'>{e.answer}</div>
 					)
 				}
 			});
@@ -101,7 +101,11 @@ componentDidMount(){
 					this.renderIng()}
 				</div>
 				<div className='javascript-documentation'>
-					<ul id ='javadocs'></ul>
+					<ul id ='javadocs'>
+						<span className='documentation-title'>
+						JavaScript Documentation and Resources
+						</span>
+					</ul>
 				</div>
 				{/* <ListGroup id='javadocs'>
 	 <ListGroupItem>Item 1</ListGroupItem>

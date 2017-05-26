@@ -29,13 +29,13 @@ class Header extends Component {
           <Nav>
             <NavItem href="/about">About</NavItem>
             <NavItem eventKey={2} href="/contact">Contact</NavItem>
-            
-            <NavDropdown eventKey={3} title="Documentation" id="nav-dropdown">
+
+            <NavDropdown eventKey={3} title="Topics" id="nav-dropdown">
                 <MenuItem eventKey={3.1} href="/eact">React</MenuItem>
                 <MenuItem eventKey={1} href="/express">Express</MenuItem>
                 <MenuItem eventKey={1} href="/javs">JavaScript</MenuItem>
                 <MenuItem eventKey={1} href="/node">Node.js</MenuItem>
-              </NavDropdown>  
+              </NavDropdown>
           </Nav>
             <Navbar.Form pullLeft>
           {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
@@ -51,7 +51,7 @@ class Header extends Component {
                 <MenuItem eventKey={1} href="#">Logout</MenuItem>
                 <MenuItem eventKey={1} href="/login">Login</MenuItem>
               </NavDropdown>
-              
+
             </Nav>
           </Navbar>
       </div>
