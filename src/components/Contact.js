@@ -30,10 +30,15 @@ const profileImages = (
 );
 
 const socialTabs = (
-  <div style={{display: 'inlineBlock', width: '90%'}}>
-  <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px' }} src='https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300' />
-  <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'  }} src='https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png' />
-  </div>
+  <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'}} src='https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300' />
+  )
+
+const github = (
+    <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'}} src='https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png' />
+  )
+
+const personal = (
+    <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'}} src='https://www.microsoft.com/en-us/research/wp-content/themes/microsoft-research-theme/images/blank-avatar.png' />
   )
   
 
@@ -44,29 +49,32 @@ const bioDetails = (
         <ul style={{
           listStyle: 'none'
         }} sm={6} md={3}>
-          <li>Name: Lorem</li>
+          <li>Name: Dash</li>
           <li>Username: loRem</li>
-          <li> {socialTabs} </li>
-        </ul>
+          <li> <a href='https://www.linkedin.com/in/dashiell-lumas-19a667106/'> {socialTabs} </a> 
+               <a href='https://github.com/Dashy10'> {github} </a> {personal} </li>
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
+        </ul>
       </Col>
       <Col xs={6} md={4}>
         <ul style={{
           listStyle: 'none'
         }} xs={6} md={4}>
-          <li>Name: Lorem</li>
+          <li>Name: Ed</li>
           <li>Username: loRem</li>
-          <li> {socialTabs} </li>
+          <li> <a href='https://www.linkedin.com/in/edmondoconnell/'> {socialTabs}</a> 
+                <a href='https://github.com/eoconnell44'> {github} </a> {personal} </li>
+          <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
-        <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
       </Col>
       <Col xs={6} md={4}>
         <ul style={{
           listStyle: 'none'
         }} xs={6} md={4}>
-          <li>Name: Lorem</li>
+          <li>Name: Kyle </li>
           <li>Username: loRem</li>
-          <li> {socialTabs} </li>
+          <li> <a href='https://www.linkedin.com/in/kyle-frable-6978b267/'> {socialTabs}</a> 
+               <a href='https://github.com/Kfrable'> {github} </a> {personal} </li>
           <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
       </Col>
