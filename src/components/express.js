@@ -9,10 +9,13 @@ class Express extends Component {
       resource: [],
       finddata: [],
       allQuestions: [],
-      relAnswers: []
+      relAnswers: [],
+      question:[],
+      qtopic_id: '2'
     }
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
+   
   }
   componentDidMount() {
     this.getAllExpressDocs();
@@ -26,7 +29,7 @@ class Express extends Component {
       this.setState({resource: res.data.data})
       console.log(res.data.data)
       this.state.resource.map((e, i) => {
-        console.log(this.state.resource)
+        /*console.log(this.state.resource)*/
         let doc = document.getElementById('expressdocs');
         let link = document.createElement('a')
         let list = document.createElement('li');
@@ -43,7 +46,7 @@ class Express extends Component {
   checkNewUrl() {
     let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
     axios.get(newUrl).then((res) => {
-      console.log('whats new return-->', res.data);
+      
       let alldata = res.data
       this.setState({finddata: alldata, allQuestions: alldata.questions, relAnswers: alldata.answers})
     })
@@ -54,7 +57,7 @@ class Express extends Component {
     if (this.state.finddata.data !== undefined) {
       let render = this.state.finddata.data.map((e) => {
         if (rendered.indexOf(e.question)) {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
+          
           rendered.push(e.question)
           return (
             <div className='questions-no-duplicate'>
@@ -67,7 +70,7 @@ class Express extends Component {
             </div>
           );
         } else {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
+          
 
           return (
             <div className='questions-no-duplicate'>{e.answer}</div>
@@ -77,6 +80,22 @@ class Express extends Component {
       return render;
     }
   }
+   
+   askQuestion(event){
+    event.preventDefault();
+    let url = 'https://project-overflow-db.herokuapp.com/Questions/'
+    console.log('The Express question button is working')
+    let item = document.getElementById('ques').value;
+    console.log(item);
+      axios.post(url,{
+        question: item,
+        qtopic_id: '2'
+      })
+   }
+
+   
+  
+  
 
   render() {
     return (
@@ -89,6 +108,9 @@ class Express extends Component {
           </span>
 
         </ul>
+          <input type='text' id = 'ques'/>
+          <button  onClick={this.askQuestion}/>
+        
       </div>
     )
   }
