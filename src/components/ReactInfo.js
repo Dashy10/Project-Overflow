@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Image, Grid, Row, Col} from 'react-bootstrap';
 
 class ReactInfo extends Component {
 
@@ -58,9 +59,26 @@ class ReactInfo extends Component {
           rendered.push(e.question)
           return (
             <div className='questions-no-duplicate'>
-              <h4>
-                {e.question}
-              </h4>
+                <Grid>
+                  <Row className="show-grid">
+                   <h1>React</h1>
+                    <Col className='aboutCols' xs={6} md={4} style={{borderRight:'1px solid black'}}> 
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={6} md={4} style={{borderRight:'1px solid black'}}> 
+                      <h4>React Documentation and Resources<h4>
+                    </Col>
+                    <Col xs={6} md={4} style={{borderRight:'1px solid black'}}> 
+                      <h4> {e.question} </h4>
+                    </Col>
+                    
+
+
+                  </Row>
+                </Grid>
+             
+
               <div>
                 {e.answer}
               </div>
@@ -81,19 +99,9 @@ class ReactInfo extends Component {
   render() {
     return (
       <div className='react-wrapper'>
-        <h1>React</h1>
-        <div className='flex-wrapper-no-duplicate'>
-          <div id='resource-column'>
-            <ul id='reactdocs'>
-              <span className='documentation-title'>
-                React Documentation and Resources
-              </span>
-            </ul>
-          </div>
-          <div id='question-column'>
+
             {this.renderIng()}
-          </div>
-        </div>
+
       </div>
     )
   }

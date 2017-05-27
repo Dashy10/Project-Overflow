@@ -9,7 +9,7 @@ import Questions from './components/questions';
 import Topics from './components/Topics';
 import Login from './components/Login';
 import axios from 'axios';
-import ReactInfo from './components/ReactInfo';
+import Rreact from './components/Rreact';
 import Express from './components/express';
 import JavaScriptInfo from './components/JavaScriptInfo';
 import Node from './components/node';
@@ -75,14 +75,13 @@ class App extends Component {
             <Route exact path="/about" component={About}/>
             <Route exact path='/topics' component={Topics}/>
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/topics/react' component={ReactInfo}/>
+            <Route exact path='/topics/react' component={Rreact}/>
             <Route exact path='/topics/express' component={Express}/>
             <Route exact path='/topics/javascript' component={JavaScriptInfo}/>
             <Route exact path='/topics/nodejs' component={Node}/> {/* <Route exact path='/questions' component={Questions} /> */}
             <Route path="/questions/:id" component={Questions}></Route>
             <Route path='/answers' component={Answers}></Route>
           </Switch>
-          {/*<Route path="/:id" component={Infant}></Route>  Order matters*/}
           <Footer/>
         </div>
       </Router>

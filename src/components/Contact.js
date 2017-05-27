@@ -8,8 +8,8 @@ const title = {
 }
 
 const styles = {
-  height: '250',
-  width: '250',
+  height: '200',
+  width: '200',
   margin: '2.5%'
 }
 
