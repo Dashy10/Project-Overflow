@@ -101,13 +101,6 @@ class JavaScriptInfo extends Component {
           </div>
 
         </div>
-
-
-
-        {/* <div className='questions-no-duplicate'>
-
-        </div> */}
-
       </div>
     )
   }
