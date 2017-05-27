@@ -47,7 +47,7 @@ class Express extends Component {
   }
 
   checkNewUrl() {
-    let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
+    let newUrl = 'https://project-overflow-db.herokuapp.com/questions'
     axios.get(newUrl).then((res) => {
       
       let alldata = res.data
@@ -77,9 +77,11 @@ class Express extends Component {
               <h4>
                 <Link to={'/answers'}>{e.question}</Link>
               </h4>
+              <button onClick={this.deleteQuestions}>Delete</button>
               <div>
                 {e.answer}
               </div>
+              
             </div>
           );
         } else {
@@ -96,24 +98,28 @@ class Express extends Component {
    
    askQuestion(event){
     event.preventDefault();
-    let url = 'https://project-overflow-db.herokuapp.com/QA/'
+    let url = 'https://project-overflow-db.herokuapp.com/questions/'
     console.log('The Express question button is working')
     let item = document.getElementById('ques').value;
     console.log(item);
       axios.post(url,{
         question: item,
-        qtopic_id: '2',
-        aquestion_id:'9',
-        atopic_id:'2'
+        qtopic_id: '2'/*,
+        aquestion_id:'12',
+        atopic_id:'2'*/
       })
    }
 
-  /* answerQuestion(event){
-    event.preventDefault();
-    let url =''
-    let 
-   }
-   */
+ deleteQuestions(){
+  console.log('delete button works')
+  /*let asked = this.state.question.filter(d=>{
+    console.log(asked)
+    return d.question !== question
+  })
+  this.setState({
+    question:asked
+  })*/
+ }
 
    
   
@@ -123,7 +129,7 @@ class Express extends Component {
     return (
       <div>
         <h1>Express</h1>
-        <div>{this.renderIng()}</div>
+        <div>{this.renderIng()} </div>
         <ul id='expressdocs'>
           <span className='documentation-title'>
             Express Documentation and Resources
@@ -132,6 +138,7 @@ class Express extends Component {
         </ul>
           <input type='text' id = 'ques'/>
           <button  onClick={this.askQuestion}>Submit</button>
+          <button onClick={this.deleteQuestions}>Delete</button>
         
       </div>
     )
