@@ -21,19 +21,16 @@ class App extends Component {
     super(props)
     this.state = {
       resource: [],
-      question: '',
       allQuestions: [],
       search: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('submitted!');
-    console.log(event);
+    console.log('submitted!', event);
     let query = document.getElementById('newVal').value.toLowerCase();
-    console.log(query);
-    this.setState({question: this.query})
     window.location.assign('/topics/' + query)
   }
 
@@ -43,22 +40,19 @@ class App extends Component {
 
   renderQuestions() {
     let url = 'https://project-overflow-db.herokuapp.com/questions';
-
     axios.get(url).then((res) => {
       console.log('do we see data Q--->', res.data.data);
       let data = res.data.data
-      this.setState({allQuestions: data})
+      this.setState({
+        allQuestions: data,
+        search: window.location.pathname.slice(8)
+      })
+      console.log('show Q state-->', this.state.search)
 
       return data.map((e) => {
         console.log('showme the Q-->', e.question);
-        return (
-          <li>
-            {e.question}
-          </li>
-        )
-
+        return ( <li> {e.question} </li> )
       })
-
     })
   }
 
@@ -66,7 +60,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header value={this.state.search}
+          <Header search={this.state.search}
           onSubmit={(event) => this.handleSubmit(event)} />
           <Switch>
             <Route exact path='/' component={Home}/>
