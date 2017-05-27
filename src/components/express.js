@@ -12,7 +12,9 @@ class Express extends Component {
       allQuestions: [],
       relAnswers: [],
       question:[],
-      qtopic_id: '2'
+      qtopic_id: [],
+      aquestion_id:[],
+      atopic_id:[]
     }
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
@@ -49,7 +51,13 @@ class Express extends Component {
     axios.get(newUrl).then((res) => {
       
       let alldata = res.data
-      this.setState({finddata: alldata, allQuestions: alldata.questions, relAnswers: alldata.answers})
+      this.setState({finddata: alldata, 
+                      allQuestions: alldata.questions, 
+                      relAnswers: alldata.answers,
+                      qtopic_id:alldata.qtopic_id,
+                      atopic_id:alldata.atopic_id,
+                      aquestion_id:alldata.aquestion_id
+                        })
     })
   }
 
@@ -88,13 +96,15 @@ class Express extends Component {
    
    askQuestion(event){
     event.preventDefault();
-    let url = 'https://project-overflow-db.herokuapp.com/Questions/'
+    let url = 'https://project-overflow-db.herokuapp.com/QA/'
     console.log('The Express question button is working')
     let item = document.getElementById('ques').value;
     console.log(item);
       axios.post(url,{
         question: item,
-        qtopic_id: '2'
+        qtopic_id: '2',
+        aquestion_id:'9',
+        atopic_id:'2'
       })
    }
 
