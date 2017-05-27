@@ -18,13 +18,15 @@ class Rreact extends Component {
       finddata: [],
       allQuestions: [],
       relAnswers: [],
-      newQuestion: false
+      newQuestion: false,
+      search: window.location.pathname.slice(8)
     }
-    console.log('REACT PAGE SHOW STATE STAUS', this.props.search)
+    console.log('REACT PAGE SHOW STATE STAUS', this.props)
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getAllReactDocs = this.getAllReactDocs.bind(this);
+    // this.updateTitle = this.updateTitle.bind(this);
   }
   componentDidMount() {
     this.renderIng();
@@ -55,22 +57,35 @@ class Rreact extends Component {
   	console.log('new props', this.props)	
   }
   renderCommentBox(){
-  	// if(this.state.newQuestion){
+  	// Used for the btn feature****>>>>> if(this.state.newQuestion){
   		return(
   			<div>
   				<input style={{height: '35px', width: '40%', border: '1 solid gray'}} type='text' placeholder='Your Answer'></input>
   			</div>
   			)
   		}
-  	// }
 
-    checkNewUrl() {
-    let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
-    axios.get(newUrl).then((res) => {
-      console.log('whats new return-->', res.data);
-      let alldata = res.data
-      this.setState({finddata: alldata, allQuestions: alldata.questions, relAnswers: alldata.answers})
+  handleSubmitQ(e){
+    e.preventDefault();
+    let url = 'https://project-overflow-db.herokuapp.com/QA/'
+    let newQuestion = document.getElementById('qVal').value
+    console.log('HERES The new Question -->', newQuestion);
+    axios.post(url,{
+      question: newQuestion,
+      qtopic_id: '2',
+      aquestion_id:'9',
+      atopic_id:'2'
     })
+  }
+
+  checkNewUrl() {
+  let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
+  axios.get(newUrl).then((res) => {
+    console.log('whats new return-->', res.data);
+    let alldata = res.data
+    this.setState({finddata: alldata, allQuestions: alldata.questions, relAnswers: alldata.answers})
+  })
+  console.log('show me data STATE-->', this.state)
   }
 
     renderIng() {
@@ -78,7 +93,7 @@ class Rreact extends Component {
     if (this.state.finddata.data !== undefined) {
       let render = this.state.finddata.data.map((e) => {
         if (rendered.indexOf(e.question)) {
-          console.log(e.question, rendered, rendered.indexOf(e.question))
+          console.log('WHAT IS ALL THIS====>', e, e.question, rendered, rendered.indexOf(e.question))
           rendered.push(e.question)
           return (
 	<Grid>
@@ -88,8 +103,10 @@ class Rreact extends Component {
    
 			</Col>
 			<Col style={styles} xs={12} md={6}> 
-				<h4 style={{color:'blue'}}> {e.question} </h4> 
-				<h5> {e.answer} </h5>
+			<h4 style={{color:'blue'}} subject={this.state.search} qtopicID={e.qtopic_id} qquestionId={e.qquestion_id} atopicId={e.atopic_id} > 
+          {e.question} </h4> 
+				<h5 subject={this.state.search} atopicID={e.atopic_id} aquestionId={e.aquestion_id} atopicId={e.atopic_id}> 
+            {e.answer} </h5>
 {/*	Drop btn for npw				<Button onClick={this.handleClick}>+</Button> */}
 					{this.renderCommentBox()}
 			</Col>
@@ -116,15 +133,13 @@ class Rreact extends Component {
   	return (
   		<div>
   			<Grid>
-  				<Row> <h1 style={{padding: '1%'}}> REACT </h1> </Row>
+  				<Row> <h1 style={{padding: '1%'}}> {this.state.search.toUpperCase()} </h1> </Row>
 					<Row>
-
-						<form action='/topics/react' method="get" >
+						<form onSubmit={this.handleSubmitQ} action='/topics/react' method="get" >
 							<FormGroup >
 							<FormControl style={{border:'5px lightgray solid'}} id='qVal' type="text" placeholder="Question"/>
 							</FormGroup>
 						</form>
-
 					</Row>
 					<Row>
 						<Col style={styles} xs={6} md={2}> <h2> Documents </h2>  </Col>
