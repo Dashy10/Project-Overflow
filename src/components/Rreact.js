@@ -20,6 +20,7 @@ class Rreact extends Component {
       relAnswers: [],
       newQuestion: false
     }
+    console.log('REACT PAGE SHOW STATE STAUS', this.props.search)
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -29,6 +30,7 @@ class Rreact extends Component {
     this.renderIng();
     this.checkNewUrl();
     this.getAllReactDocs();
+    console.log('Whats the search -->', this.props.search)
   }
 
     getAllReactDocs() {
@@ -49,18 +51,18 @@ class Rreact extends Component {
   	this.setState({
   		newQuestion: true
   	})
-  	console.log('new state', this.state.newQuestion)
+  	console.log('new state', this.state)
+  	console.log('new props', this.props)	
   }
   renderCommentBox(){
-  	if(this.state.newQuestion){
+  	// if(this.state.newQuestion){
   		return(
   			<div>
-  				<input style={{height: '65px', width: '40%', border: '1 solid gray'}} type='text' placeholder='Your Answer'></input>
+  				<input style={{height: '35px', width: '40%', border: '1 solid gray'}} type='text' placeholder='Your Answer'></input>
   			</div>
   			)
   		}
-  	}
-
+  	// }
 
     checkNewUrl() {
     let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
@@ -81,33 +83,18 @@ class Rreact extends Component {
           return (
 	<Grid>
 		<Row>
-			<h2> REACT </h2>
-		</Row>
-		<Row>
-      <form action='/topics/react' method="get" >
-        <FormGroup >
-          <FormControl id='qVal' type="text" placeholder="Question"/>
-        </FormGroup>
-      </form>
-		</Row>
-		<Row>
-			<Col style={styles} xs={6} md={2}> <h2> Documents </h2>  </Col>
-			<Col style={styles} xs={12} md={6}> <h2> Questions </h2> </Col>
-			<Col style={styles} xs={12} md={4}> <h2> Date Added </h2> </Col>
-		</Row>
-		<Row>
 			<Col style={styles} xs={6} md={2}> 
 				 {this.getAllReactDocs} 
    
 			</Col>
 			<Col style={styles} xs={12} md={6}> 
-				<h4> {e.question} </h4> 
-				<h6> {e.answer} </h6>
-					<Button onClick={this.handleClick}>+</Button> 
+				<h4 style={{color:'blue'}}> {e.question} </h4> 
+				<h5> {e.answer} </h5>
+{/*	Drop btn for npw				<Button onClick={this.handleClick}>+</Button> */}
 					{this.renderCommentBox()}
 			</Col>
 			<Col styles={styles} xs={6} md={4}>
-				{e.qdate_added.slice(0,10)}
+				<h5> {e.qdate_added.slice(0,10)} </h5>
 			</Col>
 		</Row>
 	</Grid>
@@ -128,6 +115,23 @@ class Rreact extends Component {
   render(){
   	return (
   		<div>
+  			<Grid>
+  				<Row> <h1 style={{padding: '1%'}}> REACT </h1> </Row>
+					<Row>
+
+						<form action='/topics/react' method="get" >
+							<FormGroup >
+							<FormControl style={{border:'5px lightgray solid'}} id='qVal' type="text" placeholder="Question"/>
+							</FormGroup>
+						</form>
+
+					</Row>
+					<Row>
+						<Col style={styles} xs={6} md={2}> <h2> Documents </h2>  </Col>
+						<Col style={styles} xs={12} md={6}> <h2> Questions </h2> </Col>
+						<Col style={styles} xs={12} md={4}> <h2> Date Added </h2> </Col>
+				 </Row>
+  			</Grid>
   			{this.renderIng()}
   			
   		</div>

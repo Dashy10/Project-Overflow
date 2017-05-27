@@ -20,6 +20,10 @@ import Contact from './Contact';
 class Header extends Component {
   constructor(props) {
     super(props)
+    // this.state = {
+    //   query: ''
+    // }
+    console.log('what is HEADER State-->', this.props.search)
   }
 
   render() {
@@ -45,7 +49,7 @@ class Header extends Component {
           </Nav>
           <Navbar.Form pullLeft>
             {/* FormGroup does not provide on submit event. Need to wrap it with form element and attach event handler to it */}
-            <form action="/questions" method="post" onSubmit={this.props.onSubmit} ref={(input) => { this.textInput = input; }}>
+            <form action="/questions" method="post" onSubmit={this.props.onSubmit}>
               <FormGroup >
                 <FormControl id='newVal' type="text" placeholder="Search"/>
               </FormGroup>
