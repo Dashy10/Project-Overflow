@@ -47,7 +47,7 @@ class Express extends Component {
   }
 
   checkNewUrl() {
-    let newUrl = 'https://project-overflow-db.herokuapp.com/questions'
+    let newUrl = 'https://project-overflow-db.herokuapp.com/questions/2'
     axios.get(newUrl).then((res) => {
       
       let alldata = res.data
@@ -77,7 +77,9 @@ class Express extends Component {
               <h4>
                 <Link to={'/answers'}>{e.question}</Link>
               </h4>
-              <button onClick={this.deleteQuestions}>Delete</button>
+              {<button onClick={this.deleteQuestions}>Delete</button>}
+              <input type='text' id ='answ' placeholder='answer'/>
+              <button onClick={this.answerQuestion}>Answer</button>
               <div>
                 {e.answer}
               </div>
@@ -98,28 +100,46 @@ class Express extends Component {
    
    askQuestion(event){
     event.preventDefault();
-    let url = 'https://project-overflow-db.herokuapp.com/questions/'
+    
+    let url = 'https://project-overflow-db.herokuapp.com/questions'
     console.log('The Express question button is working')
     let item = document.getElementById('ques').value;
     console.log(item);
       axios.post(url,{
         question: item,
-        qtopic_id: '2'/*,
-        aquestion_id:'12',
-        atopic_id:'2'*/
+        qtopic_id: '2',
+       
+
       })
+    
    }
 
  deleteQuestions(){
   console.log('delete button works')
-  /*let asked = this.state.question.filter(d=>{
+  let asked = this.state.question.filter(d=>{
     console.log(asked)
-    return d.question !== question
+    return this.d.question !== this.question
   })
   this.setState({
     question:asked
-  })*/
+  })
+}
+ 
+
+ /*$('.delete').on('click', function(){
+  let id = $(this).parent().attr('data-id')  
+  axios.delete('/comments/'+id)
+  $(this).parent().remove();
+  $('<hr>')
+  console.log(id+'djsgdhfghsdg')
+})*/
+
+ answerQuestion(){
+  console.log('answer button works')
+  let url = 'https://project-overflow-db.herokuapp.com/answers'
+  axios.post(url,)
  }
+
 
    
   
@@ -138,6 +158,7 @@ class Express extends Component {
         </ul>
           <input type='text' id = 'ques'/>
           <button  onClick={this.askQuestion}>Submit</button>
+          <input type='text' id ='answ' placeholder='answer'/>
           <button onClick={this.deleteQuestions}>Delete</button>
         
       </div>
