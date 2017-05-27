@@ -24,7 +24,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div style={styles}>
+      <div /*style={styles}*/>
         <h4 style={projTitle}>ProjectOverflow &copy; 2017</h4>
       </div>
     )
