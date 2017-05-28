@@ -107,7 +107,7 @@ class Express extends Component {
     }
   }
    
-   askQuestion(event){
+  /* askQuestion(event){
     event.preventDefault();
     
     let url = 'https://project-overflow-db.herokuapp.com/questions'
@@ -122,7 +122,21 @@ class Express extends Component {
 
       })
    
-   }
+   }*/
+
+   askQuestion(event) {
+    event.preventDefault();
+    let url = 'https://project-overflow-db.herokuapp.com/questions'
+    let item = document.getElementById('ques').value;
+    if (item !== "") {
+      axios.post(url, {
+        question: item,
+        qtopic_id: '2'
+      })
+    }
+    document.querySelector("#ques").value = "";
+
+  };
 
  /*deleteQuestions(event){
   event.preventDefault();
