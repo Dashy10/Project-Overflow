@@ -6,6 +6,7 @@ class Answers extends Component{
 		super(props)
 		this.state={
 			answer:[],
+			
 		    
 		}
 	}
@@ -36,7 +37,8 @@ class Answers extends Component{
 		 let resp = document.getElementById('answ').value
 		 console.log(resp)
 		 axios.post(url,{
-		 	answer:resp
+		 	answer:resp,
+		 	
 		 })
 
 		}
