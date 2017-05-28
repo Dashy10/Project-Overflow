@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const Style={
+  
+    overflow: 'scroll',
+    height: 357
+
+}
+
 class Express extends Component {
 
   constructor(props) {
@@ -14,7 +21,8 @@ class Express extends Component {
       question:[],
       qtopic_id: [],
       aquestion_id:[],
-      atopic_id:[]
+      atopic_id:[],
+      qquestion_id:[]
     }
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
@@ -77,9 +85,10 @@ class Express extends Component {
               <h4>
                 <Link to={'/answers'}>{e.question}</Link>
               </h4>
-              {<button onClick={this.deleteQuestions}>Delete</button>}
+              
               <input type='text' id ='answ' placeholder='answer'/>
               <button onClick={this.answerQuestion}>Answer</button>
+              <button onClick={this.deleteQuestions}>Delete</button>
               <div>
                 {e.answer}
               </div>
@@ -104,6 +113,7 @@ class Express extends Component {
     let url = 'https://project-overflow-db.herokuapp.com/questions'
     console.log('The Express question button is working')
     let item = document.getElementById('ques').value;
+    
     console.log(item);
       axios.post(url,{
         question: item,
@@ -111,19 +121,39 @@ class Express extends Component {
        
 
       })
-    
+   
    }
 
- deleteQuestions(){
+ /*deleteQuestions(event){
+  event.preventDefault();
   console.log('delete button works')
-  let asked = this.state.question.filter(d=>{
-    console.log(asked)
-    return this.d.question !== this.question
+  url ='https://project-overflow-db.herokuapp.com/questions'
+  let asked = this.state.question
+      console.log(asked)
+   axios.delete('https://project-overflow-db.herokuapp.com/questions').then((res =>{
+    this.setState({question:'is express fun'})
+    
+    console.log(res.data.data)
+
   })
-  this.setState({
-    question:asked
-  })
-}
+    
+})*/
+   /*deleteQuestions(res){
+    let url = 'https://project-overflow-db.herokuapp.com/questions/'
+    console.log(url)
+    
+    axios.delete(
+      
+    
+      
+      this.setState({
+        question:
+      })
+     
+    )
+   }*/
+
+
  
 
  /*$('.delete').on('click', function(){
@@ -137,7 +167,15 @@ class Express extends Component {
  answerQuestion(){
   console.log('answer button works')
   let url = 'https://project-overflow-db.herokuapp.com/answers'
-  axios.post(url,)
+  let respond = document.getElementById('answ').value;
+  console.log(respond)
+  /*axios.post(url)*/
+
+  axios.post(url,{
+        answer: respond
+       
+
+      })
  }
 
 
@@ -147,7 +185,7 @@ class Express extends Component {
 
   render() {
     return (
-      <div>
+      <div style={Style}>
         <h1>Express</h1>
         <div>{this.renderIng()} </div>
         <ul id='expressdocs'>

@@ -1,11 +1,12 @@
-/*import React,{Component} from 'react';
+import React,{Component} from 'react';
 import axios from 'axios';
 
 class Answers extends Component{
 	constructor(props){
 		super(props)
 		this.state={
-			answer:[]
+			answer:[],
+		    
 		}
 	}
 
@@ -15,7 +16,7 @@ class Answers extends Component{
   }
 
 	getAnswers(props){
-		let url = 'https://project-overflow-db.herokuapp.com/answers/4';
+		let url = 'https://project-overflow-db.herokuapp.com/answers';
 		axios.get(url).then((res) => {
         this.setState({answer: res.data.data})
         console.log('this----->',res.data.data)
@@ -27,14 +28,28 @@ class Answers extends Component{
 
       })
     })
+}
 
-  }
+		answering(){
+				console.log('answer works')
+		 let url = 'https://project-overflow-db.herokuapp.com/answers'
+		 let resp = document.getElementById('answ').value
+		 console.log(resp)
+		 axios.post(url,{
+		 	answer:resp
+		 })
+
+		}
+
+  
 	
 
 		render(){	
 		return(
 			<div>
-				<h1>yolo</h1>
+				<h1>Express</h1>
+				<input id ='answ' />
+				<button onClick={this.answering}>Answer</button>
 				<ul id='eanswers'>
 
 				</ul>
@@ -45,4 +60,4 @@ class Answers extends Component{
 }
 
 
-export default Answers*/
+export default Answers
