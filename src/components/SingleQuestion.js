@@ -18,11 +18,17 @@ export default class SingleQuestion extends Component {
     let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
     axios.get(url)
     .then((res) => {
-      console.log(res.data.question);
+      console.log(res.data);
       let data = res.data.data;
       console.log(data);
     })
   }
+    //   data.map((e) => {
+    //     if(e.qquestion_id === id){
+    //       console.log(e);
+    //     })
+    // })
+
 
 
     render(){

@@ -31,7 +31,7 @@ render() {
             <MenuItem eventKey={3.1} href="/topics/react">React</MenuItem>
             <MenuItem eventKey={1} href="/topics/express">Express</MenuItem>
             <MenuItem eventKey={1} href="/topics/javascript">JavaScript</MenuItem>
-            <MenuItem eventKey={1} href="/topics/nodejs">Node.js</MenuItem>
+            <MenuItem eventKey={1} href="/topics/node">Node</MenuItem>
           </NavDropdown>
         </Nav>
         <Navbar.Form pullLeft>
