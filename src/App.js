@@ -9,6 +9,7 @@ import Questions from './components/questions';
 import Topics from './components/Topics';
 import Login from './components/Login';
 import Answers from './components/Answers';
+import SingleQuestion from './components/SingleQuestion';
 
 import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
 
@@ -49,6 +50,7 @@ render() {
           <Route exact path='/login' component={Login}/>
           <Route path='/topics' component={Topics}/>
           <Route path='/answers' component={Answers}></Route>
+          <Route exact path='/:subject/answers/:id' component={SingleQuestion} />
         </Switch>
         <Footer/>
       </div>
