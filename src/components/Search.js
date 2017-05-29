@@ -26,7 +26,8 @@ export default class Search extends Component {
   }
   renderQuestions(){
     //Calls on all Questins + Answers related to topic
-  let url = 'https://project-overflow-db.herokuapp.com/QA/' + this.props.match.params.topic;
+  // let url = 'https://project-overflow-db.herokuapp.com/QA/' + this.props.match.params.topic;
+  let url = 'https://project-overflow-db.herokuapp.com/questions/' + this.props.match.params.topic;
   axios.get(url)
   .then((res) => {
     let store = res.data.data
