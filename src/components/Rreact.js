@@ -5,10 +5,6 @@ import {Image, Grid, Row, Col, FormControl, Button, FormGroup} from 'react-boots
 const styles = {
 }
 
-const textBox = (
-	<input type='text' placeholder='answer'> </input>
-	)
-
 class Rreact extends Component {
 
   constructor(props) {
@@ -26,13 +22,11 @@ class Rreact extends Component {
     this.checkNewUrl = this.checkNewUrl.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getAllReactDocs = this.getAllReactDocs.bind(this);
-    // this.updateTitle = this.updateTitle.bind(this);
   }
   componentDidMount() {
     this.renderIng();
     this.checkNewUrl();
     this.getAllReactDocs();
-    console.log('Whats the search -->', this.props.search)
   }
 
     getAllReactDocs() {
@@ -41,7 +35,7 @@ class Rreact extends Component {
      let docs = this.setState({resource: res.data.data})
       console.log(res.data.data)
       this.state.resource.map((e, i) => {
-        console.log('Show me the res--->', e.topic)
+        // console.log('Show me the res--->', e.topic)
         return ( <li> {e.topic} </li> )
 		})
       return docs
@@ -59,27 +53,35 @@ class Rreact extends Component {
   renderCommentBox(){
   	// Used for the btn feature****>>>>> if(this.state.newQuestion){
   		return(
-  			<div>
-  				<input style={{height: '35px', width: '40%', border: '1 solid gray'}} type='text' placeholder='Your Answer'></input>
-  			</div>
+  			<form onSubmit={this.handleAnswer}>
+  				<input id='aVal' style={{height: '35px', width: '40%', border: '1 solid gray'}} type='text' placeholder='Your Answer'></input>
+  			</form>
   			)
   		}
+  handleAnswer(e){
+  e.preventDefault();
+  let ans = document.getElementById('aVal')
+  console.log(this)
+  let parent = ans.parentElement
+  let answer = ans.value
+  let gparent = parent.parentElement
+  let q = gparent.firstChild
+  console.log('show me the Gparent node', q);
+  }
 
   handleSubmitQ(e){
     e.preventDefault();
-    let url = 'https://project-overflow-db.herokuapp.com/QA/'
+    let url = 'https://project-overflow-db.herokuapp.com/questions'
     let newQuestion = document.getElementById('qVal').value
     console.log('HERES The new Question -->', newQuestion);
     axios.post(url,{
       question: newQuestion,
-      qtopic_id: '2',
-      aquestion_id:'9',
-      atopic_id:'2'
+      qtopic_id: '3'
     })
   }
 
   checkNewUrl() {
-  let newUrl = 'https://project-overflow-db.herokuapp.com/QA/2'
+  let newUrl = 'https://project-overflow-db.herokuapp.com/questions/3'
   axios.get(newUrl).then((res) => {
     console.log('whats new return-->', res.data);
     let alldata = res.data
