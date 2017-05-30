@@ -60,10 +60,10 @@ h1 {
   box-shadow: 0px 20px 10px #888888;
 }
 
-
-li {
-/*  list-style: none;*/
+#subTitle{
+  margin-top: -34%;
 }
+
 
 .flex-wrapper-no-duplicate{
 	display: flex;
@@ -75,6 +75,13 @@ li {
 	flex:1
 }
 
-/*#question-column {
-	display:flex;
-}*/
+@media (max-width: 700px){
+#subTitle {
+    margin-top: --50%;
+ } 
+}
+@media (max-width: 500px){
+#subTitle {
+    margin-top: -142%;
+ } 
+}
