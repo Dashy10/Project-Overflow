@@ -17,10 +17,12 @@ export default class SingleQuestion extends Component {
     }
     // console.log('show props--->', props.match.params.id);
     // console.log('show state--->', props.match.params.subject);
+    this.answering = this.answering.bind(this)
   }
 
   componentDidMount(){
     // this.renderQuestion();
+    console.log('show state', this.props)
   }
 
   renderQuestion(){
@@ -34,6 +36,8 @@ export default class SingleQuestion extends Component {
       for(let i =0; i<data.length;i++){
       console.log('THIS IS WHAT TO LOOK AT ----->',data[i].question);
       let asked = document.createElement('h1')
+      asked.setAttribute('id',[i])
+      console.log(asked)
       let holder = document.getElementById('holder')
       asked.innerHTML=data[i].question;
       // let li = document.createElement('li')
@@ -60,15 +64,13 @@ export default class SingleQuestion extends Component {
 
         let url = 'https://project-overflow-db.herokuapp.com/answers'
         let response = document.getElementById('answer').value
-
-        console.log(response)
+        let id = this.props.params.match.id
+        console.log(id)
+        // let id = document.getElementById()
+        console.log('show state', this.props)
         axios.post(url,{
       answer:response,
-
-      /*aquestion_id:,
-      atopic_id:*/
-
-       aquestion_id:'aquestion_id'
+      aquestion_id:id
       
       
 
