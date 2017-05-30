@@ -3,6 +3,10 @@ import axios from 'axios';
 import {Grid, Row, Col, FormControl, Button, FormGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+const styles = {
+
+}
+
 export default class Search extends Component {
   constructor(props) {
     super(props)
@@ -48,7 +52,15 @@ export default class Search extends Component {
       console.log('Return the MAPPING===>', e);
       if(rendered.indexOf(e.question)){
         rendered.push(e.question)  
-        return ( <div> <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link> <h6> {e.answer} </h6> </div> )
+        return ( 
+          <Grid>
+          <Col style={styles} xs={6} md={2}>
+ <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
+        </Col>
+        <Col style={styles} xs={6} md={2}>
+          <h5> {e.qdate_added.slice(0,10)} </h5>
+        </Col>
+        </Grid> )
       } else {
         return ( <div> <h6> {e.answer} </h6> </div> )
       }
@@ -88,14 +100,21 @@ export default class Search extends Component {
 
 render(){
   return(
-    <div>
-      <h1> {this.state.search} </h1>
+    <div style={{display: 'inline'}}>
+      <Row> <h1 id='subTitle'> {this.state.search} </h1> </Row>
+      <Row>
           <form onSubmit={this.handleSubmitQ}>
             <FormGroup >
             <FormControl style={{border:'5px lightgray solid'}} id='qVal' type="text" placeholder="Question"/>
             </FormGroup>
-          </form>       
-      <div> {this.renderAll()} </div>
+          </form>
+        </Row> 
+        <Row>
+          <Col style={styles} xs={6} md={2}> <h2> Documents </h2>  </Col>
+          <Col style={styles} xs={12} md={6}> <h2> Questions </h2> </Col>
+          <Col style={styles} xs={12} md={4}> <h2> Date Added </h2> </Col>
+       </Row>     
+      {this.renderAll()} 
     </div>
     )
   }
