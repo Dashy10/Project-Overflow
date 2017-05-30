@@ -40,7 +40,7 @@ const github = (
 const personal = (
     <img style={{height: '25px', width: '25px', borderRadius: '50%', margin: '5px'}} src='https://www.microsoft.com/en-us/research/wp-content/themes/microsoft-research-theme/images/blank-avatar.png' />
   )
-  
+
 
 const bioDetails = (
   <Grid>
@@ -51,7 +51,7 @@ const bioDetails = (
         }} sm={6} md={3}>
           <li>Name: Dash</li>
           <li>Username: loRem</li>
-          <li> <a href='https://www.linkedin.com/in/dashiell-lumas-19a667106/'> {socialTabs} </a> 
+          <li> <a href='https://www.linkedin.com/in/dashiell-lumas-19a667106/'> {socialTabs} </a>
                <a href='https://github.com/Dashy10'> {github} </a> {personal} </li>
         <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
@@ -62,7 +62,7 @@ const bioDetails = (
         }} xs={6} md={4}>
           <li>Name: Ed</li>
           <li>Username: loRem</li>
-          <li> <a href='https://www.linkedin.com/in/edmondoconnell/'> {socialTabs}</a> 
+          <li> <a href='https://www.linkedin.com/in/edmondoconnell/'> {socialTabs}</a>
                 <a href='https://github.com/eoconnell44'> {github} </a> {personal} </li>
           <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
@@ -73,7 +73,7 @@ const bioDetails = (
         }} xs={6} md={4}>
           <li>Name: Kyle </li>
           <li>Username: loRem</li>
-          <li> <a href='https://www.linkedin.com/in/kyle-frable-6978b267/'> {socialTabs}</a> 
+          <li> <a href='https://www.linkedin.com/in/kyle-frable-6978b267/'> {socialTabs}</a>
                <a href='https://github.com/Kfrable'> {github} </a> {personal} </li>
           <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
         </ul>
