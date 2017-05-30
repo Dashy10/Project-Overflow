@@ -23,6 +23,7 @@ export default class SingleQuestion extends Component {
   componentDidMount(){
     // this.renderQuestion();
     console.log('show state', this.props)
+    this.answering();
   }
 
   renderQuestion(){
@@ -36,7 +37,7 @@ export default class SingleQuestion extends Component {
       for(let i =0; i<data.length;i++){
       console.log('THIS IS WHAT TO LOOK AT ----->',data[i].question);
       let asked = document.createElement('h1')
-      asked.setAttribute('id',[i])
+      asked.setAttribute('id',id)
       console.log(asked)
       let holder = document.getElementById('holder')
       asked.innerHTML=data[i].question;
@@ -45,6 +46,8 @@ export default class SingleQuestion extends Component {
       holder.appendChild(asked);
       // holder.appendChild(li);
       }
+
+
       for(let i =0; i<answ.length;i++){
         console.log('THIS IS WHAT TO LOOK AT ----->',answ);
         let holder = document.getElementById('holder');
@@ -61,29 +64,24 @@ export default class SingleQuestion extends Component {
     // })
 
       answering(){
-
         let url = 'https://project-overflow-db.herokuapp.com/answers'
         let response = document.getElementById('answer').value
+        let id = this.props.match.params.id
+        console.log(id);
+        console.log(document.getElementById('h1'));
         // let id = this.props.params.match.id
         // console.log(id)
         // let id = document.getElementById()
         console.log('show state', this.props)
         axios.post(url,{
       answer:response,
-      aquestion_id:1
-
-
-
+      aquestion_id: id
      })
-
       }
-
-
     render(){
       return(
         <div>
         <div id='holder'>
-        <h1>hello friend</h1>
         {this.renderQuestion()}
         <div style={style}>
         <input id='answer' type='text' placeholder='Answer'/>

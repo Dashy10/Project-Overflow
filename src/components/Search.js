@@ -3,7 +3,9 @@ import axios from 'axios';
 import {Grid, Row, Col, FormControl, Button, FormGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const styles = {}
+const styles = {
+  overflow: 'scroll'
+}
 
 export default class Search extends Component {
   constructor(props) {
@@ -127,7 +129,7 @@ render(){
       })
   return(
     <div>
-    <Grid>
+    <Grid >
       <Row> <h1> {this.state.search} </h1> </Row>
       <Row>
           <form onSubmit={this.handleSubmitQ}>
