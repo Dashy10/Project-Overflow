@@ -4,7 +4,7 @@ const styles = {
   backgroundColor: 'rgb(26,26,26)',
   opacity: '.7',
   color: 'white',
-  height: '70',
+  height: '100',
   textAlign: 'center',
   padding: '1% 0 5% 0',
   // marginTop: '100',
@@ -13,7 +13,7 @@ const styles = {
   bottom: '0',
   left: '0',
   width: '100%',
-  marginTop: '420px'
+  marginTop: '105px'
 }
 const projTitle = {
   fontSize: '28'
