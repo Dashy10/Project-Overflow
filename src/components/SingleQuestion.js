@@ -19,16 +19,24 @@ export default class SingleQuestion extends Component {
     
     axios.get(url)
     .then((res) => {
-      let data = res.data;
-      
-      console.log(data);
+      let data = res.data.question;
+      let answ = res.data.answer;
+      for(let i =0; i<data.length;i++){
+      console.log(data[i].answer);
       let asked = document.createElement('h1')
       let holder = document.getElementById('holder')
-      asked.innerHTML=data.question;
-      let li = document.createElement('li')
-      li.innerHTML=data.answer
+      asked.innerHTML=data[i].question;
+      // let li = document.createElement('li')
+      // li.innerHTML=data[i].answer
       holder.appendChild(asked);
-      holder.appendChild(li);
+      // holder.appendChild(li);
+      }
+      for(let i =0; i<answ.length;i++){
+        let holder = document.getElementById('holder');
+        let li = document.createElement('li')
+        li.innerHTML=answ[i].answer
+        holder.appendChild(li);
+      }
     })
   }
     //   data.map((e) => {
