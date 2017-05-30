@@ -10,17 +10,25 @@ export default class SingleQuestion extends Component {
   }
 
   componentDidMount(){
-    this.renderQuestion();
+    // this.renderQuestion();
   }
 
   renderQuestion(){
     let id = parseInt(this.props.match.params.id)
     let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
+    
     axios.get(url)
     .then((res) => {
-      console.log(res.data);
-      let data = res.data.data;
+      let data = res.data;
+      
       console.log(data);
+      let asked = document.createElement('h1')
+      let holder = document.getElementById('holder')
+      asked.innerHTML=data.question;
+      let li = document.createElement('li')
+      li.innerHTML=data.answer
+      holder.appendChild(asked);
+      holder.appendChild(li);
     })
   }
     //   data.map((e) => {
@@ -33,7 +41,7 @@ export default class SingleQuestion extends Component {
 
     render(){
       return(
-        <div> 
+        <div id='holder'> 
         <h1>hello friend</h1> 
         {this.renderQuestion()}
         </div>
