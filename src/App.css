@@ -104,3 +104,22 @@ h1 {
 .navbar{
   background-color: black;
 }
+
+.answer-list{
+  /*background: #ffd89b;*/
+  background: #F1F2B5;
+  border: 2px solid black;
+  text-align: center;
+  list-style: none;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 100px;
+  font-size: 13pt;
+
+}
+#answer {
+  background:#F1F2B5;
+  /*border: 1px solid grey;*/
+}
