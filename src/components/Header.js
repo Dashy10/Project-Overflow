@@ -45,9 +45,10 @@ render() {
         <Nav>
           <NavDropdown eventKey={3} title="Account" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1}>My Profile</MenuItem>
-            <MenuItem eventKey={1} href="#">Logout</MenuItem>
             <MenuItem eventKey={1} href="/login">Login</MenuItem>
+            <MenuItem eventKey={1} href="/#">Logout</MenuItem>
           </NavDropdown>
+          <NavItem>Register</NavItem>
 
         </Nav>
       </Navbar>
