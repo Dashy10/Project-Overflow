@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Style={
-  
+
     overflow: 'scroll',
     height: 357
 
@@ -26,7 +26,7 @@ class Express extends Component {
     }
     this.renderIng = this.renderIng.bind(this);
     this.checkNewUrl = this.checkNewUrl.bind(this);
-   
+
   }
   componentDidMount() {
     this.getAllExpressDocs();
@@ -57,10 +57,10 @@ class Express extends Component {
   checkNewUrl() {
     let newUrl = 'https://project-overflow-db.herokuapp.com/questions/2'
     axios.get(newUrl).then((res) => {
-      
+
       let alldata = res.data
-      this.setState({finddata: alldata, 
-                      allQuestions: alldata.questions, 
+      this.setState({finddata: alldata,
+                      allQuestions: alldata.questions,
                       relAnswers: alldata.answers,
                       qtopic_id:alldata.qtopic_id,
                       atopic_id:alldata.atopic_id,
@@ -78,25 +78,25 @@ class Express extends Component {
     if (this.state.finddata.data !== undefined) {
       let render = this.state.finddata.data.map((e) => {
         if (rendered.indexOf(e.question)) {
-          
+
           rendered.push(e.question)
           return (
             <div className='questions-no-duplicate'>
               <h4>
                 <Link to={'/answers'}>{e.question}</Link>
               </h4>
-              
+
               <input type='text' id ='answ' placeholder='answer'/>
               <button onClick={this.answerQuestion}>Answer</button>
               <button onClick={this.deleteQuestions}>Delete</button>
               <div>
                 {e.answer}
               </div>
-              
+
             </div>
           );
         } else {
-          
+
 
           return (
             <div className='questions-no-duplicate'>{e.answer}</div>
@@ -106,22 +106,22 @@ class Express extends Component {
       return render;
     }
   }
-   
+
   /* askQuestion(event){
     event.preventDefault();
-    
+
     let url = 'https://project-overflow-db.herokuapp.com/questions'
     console.log('The Express question button is working')
     let item = document.getElementById('ques').value;
-    
+
     console.log(item);
       axios.post(url,{
         question: item,
         qtopic_id: '2',
-       
+
 
       })
-   
+
    }*/
 
    askQuestion(event) {
@@ -146,32 +146,32 @@ class Express extends Component {
       console.log(asked)
    axios.delete('https://project-overflow-db.herokuapp.com/questions').then((res =>{
     this.setState({question:'is express fun'})
-    
+
     console.log(res.data.data)
 
   })
-    
+
 })*/
    /*deleteQuestions(res){
     let url = 'https://project-overflow-db.herokuapp.com/questions/'
     console.log(url)
-    
+
     axios.delete(
-      
-    
-      
+
+
+
       this.setState({
         question:
       })
-     
+
     )
    }*/
 
 
- 
+
 
  /*$('.delete').on('click', function(){
-  let id = $(this).parent().attr('data-id')  
+  let id = $(this).parent().attr('data-id')
   axios.delete('/comments/'+id)
   $(this).parent().remove();
   $('<hr>')
@@ -187,15 +187,15 @@ class Express extends Component {
 
   axios.post(url,{
         answer: respond
-       
+
 
       })
  }
 
 
-   
-  
-  
+
+
+
 
   render() {
     return (
@@ -212,7 +212,7 @@ class Express extends Component {
           <button  onClick={this.askQuestion}>Submit</button>
           <input type='text' id ='answ' placeholder='answer'/>
           <button onClick={this.deleteQuestions}>Delete</button>
-        
+
       </div>
     )
   }
