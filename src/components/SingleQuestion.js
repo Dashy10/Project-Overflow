@@ -52,7 +52,8 @@ export default class SingleQuestion extends Component {
         console.log('THIS IS WHAT TO LOOK AT ----->',answ);
         let holder = document.getElementById('holder');
         let li = document.createElement('li')
-        li.innerHTML=answ[i].answer
+        li.innerHTML=answ[i].answer;
+        li.setAttribute('class','answer-list')
         holder.appendChild(li);
       }
     })
@@ -82,6 +83,10 @@ export default class SingleQuestion extends Component {
       return(
         <div>
         <div id='holder'>
+
+        {/* <h1>hello friend</h1> */}
+
+
         {this.renderQuestion()}
         <div style={style}>
         <input id='answer' type='text' placeholder='Answer'/>
