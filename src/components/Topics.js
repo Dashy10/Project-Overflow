@@ -49,10 +49,6 @@ export default class Topics extends Component {
         </Row>
         
         </Grid>
-        <Switch>
-          <Route exact path='/' component={Topics} />
-          <Route path='/topics/:topic' component={Search} />          
-        </Switch>
         
       </div>
     )
