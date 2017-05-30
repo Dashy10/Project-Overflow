@@ -1,3 +1,5 @@
+
+
 body {
   background-color: #f2fcfe;
   /*background-color: #bdc3c7;*/
@@ -91,11 +93,11 @@ h1 {
 }
 
 #sticky-footer {
-  margin-bottom: 400px;
+  margin-bottom: 400px
 }
 
 #sticky-footer-about {
-  margin-bottom: -80px;
+  margin-bottom: -80px
 
 }
 

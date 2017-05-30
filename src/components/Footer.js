@@ -8,7 +8,7 @@ const styles = {
   textAlign: 'center',
   padding: '1% 0 5% 0',
   // marginTop: '100',
-  position: 'relative',
+  position: 'fixed',
   right: '0',
   bottom: '0',
   left: '0',
