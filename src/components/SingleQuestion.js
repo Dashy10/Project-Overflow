@@ -74,10 +74,13 @@ export default class SingleQuestion extends Component {
         // console.log(id)
         // let id = document.getElementById()
         console.log('show state', this.props)
+        if (response !== "") {
         axios.post(url,{
       answer:response,
       aquestion_id: id
      })
+      }
+      document.querySelector("#answer").value = "";
       }
     render(){
       return(

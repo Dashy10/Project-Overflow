@@ -25,7 +25,9 @@ const gridInstance = (
         <ol>
           <li> Click on a question to be brought to that question's page.</li>
           <li> Submit an answer by entering into the input field at the top. </li>
-          {/* <li> Alternatively, the downvote option is to be used for users' answers that do not correclty answer a questions</li> */}
+          <li> If you made a mistake of any kind in your answer, feel free to make an edit as well!</li>
+          <li> If you would like to delete the answer entirely, that option is also available to you.</li>
+
         </ol>
       </Col>
     </Row>
