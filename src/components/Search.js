@@ -58,18 +58,18 @@ export default class Search extends Component {
 <Grid>
   <Row>
     <Col style={styles} xs={6} md={2}>
-      <div> <p> Links </p> </div>
+      {this.renderDocs}
     </Col>
-    <Col style={styles} xs={12} md={7}>
+    <Col style={styles} xs={8} md={7}>
       <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
     </Col>
-    <Col style={styles} xs={12} md={3}>
+    <Col style={styles} xs={8} md={3}>
       <h5> {e.qdate_added.slice(0,10)} </h5>
     </Col>
   </Row>
 </Grid> )
       } else {
-        return ( <div> <h6> {e.answer} </h6> </div> )
+        return ( <div> <h6 data-id={e.answer_id}> {e.answer} </h6> </div> )
       }
     });
     return render;
@@ -110,9 +110,13 @@ export default class Search extends Component {
     let url = 'https://project-overflow-db.herokuapp.com/documentation/' + sub;
     axios.get(url).then((res) => {
 
-        // console.log('Show me the res--->', e.topic)
-         // return ( <li> {e.topic} </li> )
-    })
+     let docs = this.setState({resource: res.data.data})
+      console.log(res.data.data)
+      this.state.resource.map((e) => {
+        return  <div> <li> {e.topic} </li> </div>
+    })   
+  })
+
  }
 
  getAllExpressDocs(props) {
