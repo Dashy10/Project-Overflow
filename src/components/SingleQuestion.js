@@ -64,11 +64,13 @@ export default class SingleQuestion extends Component {
         console.log(response)
         axios.post(url,{
       answer:response,
-      /*aquestion_id:,
-      atopic_id:*/
+       aquestion_id:'aquestion_id'
+      
       
      })
+        
       }
+
 
     render(){
       return(
