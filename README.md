@@ -6,7 +6,7 @@
 
 [Database Repository](https://github.com/Dashy10/Project-Overflow-DB)
 
-[Link to Deployed Application]()
+[Link to Deployed Application](https://project-overflow-trustdxdgl.now.sh)
 
 ## Overview
 
@@ -121,11 +121,12 @@
 | Database Setup  | 3 hours  |  1 hour  | 100%  | 1 hour  |
 | Express Application  | 1 hour  | 30 minutes  | 100% | 30 minutes  |
 |React Application non-functional|3.5 hours|2 hours | 100% |2 Hours  |
-|  React w/ functionality | 15 hours  |  12 | 60%  |   |
-|  Backend functionality | 6 hours  | 3  |  100% |  3 hours |
-|  Design layout | 5 hours  | 5  | 85%  | 5  |
-|  Full deployment | 1 hour  |   |   |   |
-| Post MVP implementations  | 10 hours  |    |   | n/a  |
+|  React w/ functionality | 15 hours  |  25 hours | 80% | 20 hours |
+|  Backend functionality | 6 hours  | 12 hours |  100% |  10 hours |
+|  Design layout | 5 hours  | 8 hours | 90%  | 8 hours  |
+|  Full deployment | 1 hour  | 30 min  | 100%| 30 min |
+| Post MVP implementations  | 10 hours  | n/a | n/a | n/a |
+| Total Project Timetable  | 57 hours  | 80 hours | 85% | 50 hours |
 
 ## Workflow
  
@@ -206,7 +207,21 @@ TA's: Matt Kersner, Dominic Farquharson & Daniel Pease.
 
 ## Major Hurdles
 
+We encountered a number of hurdles throughout this project and as a team we able to come together and solve majority of the problems. A few key hurdles to note:
+
+*	Mapping through the questions and answers to render according to their assigned id. 
+* On the database side, joining multiple tables 
+* Cycling through each page and call to our API to render the correct data
+
 ## Future Improvements
+
+There are still a number of things we would like to implement into our project, which are kept and updated on our project board. 
+
+*  User login and authentication 
+*  3rd party API to edit the text field to a code box
+*  Up/Down vote functionality 
+*  Continaully refactor code to be clear and concise
+*  More to come...
 
 ## Author(s)
 
