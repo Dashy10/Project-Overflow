@@ -3,9 +3,7 @@ import axios from 'axios';
 import {Grid, Row, Col, FormControl, Button, FormGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const styles = {
-
-}
+const styles = {}
 
 export default class Search extends Component {
   constructor(props) {
@@ -13,6 +11,9 @@ export default class Search extends Component {
     this.state = {
       questions: [],
       answers: [],
+      docs: [],
+      search: this.props.match.params.topic.toUpperCase(),
+     qtopic_id: 0,
     }
     this.renderAll = this.renderAll.bind(this);
     this.renderQuestions = this.renderQuestions.bind(this);
@@ -24,38 +25,29 @@ export default class Search extends Component {
     console.log('DID this page get hit???');
     this.renderQuestions(); //Render data on page load
     this.renderAll();
-    // this.renderDocs();
-    this.state = {
-    search: this.props.match.params.topic.toUpperCase(),
-    qtopic_id: 0,
-    }
+    this.renderDocs();
   }
   renderQuestions(){
     //Calls on all Questins + Answers related to topic
-  // let url = 'https://project-overflow-db.herokuapp.com/QA/' + this.props.match.params.topic;
   let url = 'https://project-overflow-db.herokuapp.com/questions/' + this.props.match.params.topic;
-  axios.get(url)
-  .then((res) => {
+  axios.get(url).then((res) => {
     let store = res.data.data
     // console.log('SHOW ME THE STORED DATA==>', store);
     this.setState({
       questions: store,
-      resource: [],
     })
-      // console.log('WHat this show? Only state??', this.state);     
-      this.renderAll() //Call on function to render data to page
+    // console.log('WHat this show? Only state??', this.state);     
    })
   }
 
   renderAll(){
   let rendered = [];    //store all rendered values to prevent dupes
-    if (this.state.questions !== undefined) {
-    let render = this.state.questions.map((e) => {
+    // if (this.state.questions !== undefined) {
+    let render = this.state.questions.map(e => {
       // console.log('Return the MAPPING===>', e);
-      if(rendered.indexOf(e.question)){
-        rendered.push(e.question)  
+      // if(rendered.indexOf(e.question)){
+      //   rendered.push(e.question)  
         return ( 
-<Grid>
   <Row>
     <Col style={styles} xs={6} md={2}>
       {this.renderDocs}
@@ -67,14 +59,15 @@ export default class Search extends Component {
       <h5> {e.qdate_added.slice(0,10)} </h5>
     </Col>
   </Row>
-</Grid> )
-      } else {
-        return ( <div> <h6 data-id={e.answer_id}> {e.answer} </h6> </div> )
-      }
-    });
-    return render;
-   }
-  }
+ )
+ })
+    return ( 
+      <Grid> 
+      {render} 
+      </Grid> 
+      )
+    }
+  
 
   handleSubmitQ(e){
   e.preventDefault();
@@ -108,38 +101,23 @@ export default class Search extends Component {
   renderDocs(){
     let sub = this.props.match.params.topic;
     let url = 'https://project-overflow-db.herokuapp.com/documentation/' + sub;
-    axios.get(url).then((res) => {
-
-     let docs = this.setState({resource: res.data.data})
-      console.log(res.data.data)
-      this.state.resource.map((e) => {
-        return  <div> <li> {e.topic} </li> </div>
-    })   
+    axios.get(url).then(res => {
+     this.setState({
+      docs: res.data.data,
+    })
+    console.log('SHOW res===>', res)
   })
-
  }
 
- getAllExpressDocs(props) {
-    let url = 'https://project-overflow-db.herokuapp.com/documentation/express';
-    axios.get(url).then((res) => {
-      this.setState({resource: res.data.data})
-      console.log(res.data.data)
-      this.state.resource.map((e, i) => {
-        /*console.log(this.state.resource)*/
-        let doc = document.getElementById('docs');
-        let link = document.createElement('a')
-        let list = document.createElement('li');
-        link.setAttribute('href', res.data.data[i].url);
-        list.innerHTML = res.data.data[i].topic
-        link.appendChild(list)
-        doc.appendChild(link);
-
-      })
-    })
-
-  }
-
 render(){
+  //Docs will only render if they are loaded into state
+  console.log('SHOW STATE DOCS==>',this.state.docs);
+  let docsRender = this.state.docs.length &&
+      this.state.docs.map(e => {
+        return <div> 
+        <a href={e.url} target='_blank'>    {e.topic} </a>
+        </div>
+      })
   return(
     <div>
     <Grid>
@@ -153,8 +131,9 @@ render(){
       </Row> 
       <Row>
         <Col style={styles} xs={2} md={2}> <h2> Documents </h2>
-          <ul id='docs'> </ul>
+          {docsRender}
           </Col>
+          }
         <Col style={styles} xs={4} md={7}> <h2> Questions </h2> </Col>
         <Col style={styles} xs={4} md={3}> <h2> Date Added </h2> </Col>
       </Row> 

@@ -6,7 +6,11 @@ const gridInstance = (
   <Grid style={{margin: '1%', padding: '5%'}}>
     <Row className="show-grid">
       <Col className='aboutCols' xs={6} md={4} style={{borderRight:'1px solid black'}}>
+
+        <img style={{height: '100', width: '100'}} src='https://image.freepik.com/free-icon/question-mark_318-52837.jpg' alt='question mark'></img>
+
         <img style={{height: '100', width: '100'}} src='https://cdn2.iconfinder.com/data/icons/bold-ui/100/questionmark-512.png' alt='question mark'></img>
+
         <h2 style={{borderBottom: '1px solid black', padding: '1%'}}> How to Search </h2>
         <ol>
           <li> Enter a topic or keyword in the search bar above. </li>
