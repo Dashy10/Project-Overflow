@@ -17,12 +17,14 @@ export default class Search extends Component {
     this.renderAll = this.renderAll.bind(this);
     this.renderQuestions = this.renderQuestions.bind(this);
     this.handleSubmitQ = this.handleSubmitQ.bind(this);
+    this.renderDocs = this.renderDocs.bind(this);
   }
 
   componentDidMount(){
     console.log('DID this page get hit???');
     this.renderQuestions(); //Render data on page load
     this.renderAll();
+    // this.renderDocs();
     this.state = {
     search: this.props.match.params.topic.toUpperCase(),
     qtopic_id: 0,
@@ -35,12 +37,12 @@ export default class Search extends Component {
   axios.get(url)
   .then((res) => {
     let store = res.data.data
-    console.log('SHOW ME THE STORED DATA==>', store);
+    // console.log('SHOW ME THE STORED DATA==>', store);
     this.setState({
       questions: store,
       resource: [],
     })
-      console.log('WHat this show? Only state??', this.state);     
+      // console.log('WHat this show? Only state??', this.state);     
       this.renderAll() //Call on function to render data to page
    })
   }
@@ -49,18 +51,23 @@ export default class Search extends Component {
   let rendered = [];    //store all rendered values to prevent dupes
     if (this.state.questions !== undefined) {
     let render = this.state.questions.map((e) => {
-      console.log('Return the MAPPING===>', e);
+      // console.log('Return the MAPPING===>', e);
       if(rendered.indexOf(e.question)){
         rendered.push(e.question)  
         return ( 
-          <Grid>
-          <Col style={styles} xs={6} md={2}>
- <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
-        </Col>
-        <Col style={styles} xs={6} md={2}>
-          <h5> {e.qdate_added.slice(0,10)} </h5>
-        </Col>
-        </Grid> )
+<Grid>
+  <Row>
+    <Col style={styles} xs={6} md={2}>
+      <div> <p> Links </p> </div>
+    </Col>
+    <Col style={styles} xs={12} md={7}>
+      <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
+    </Col>
+    <Col style={styles} xs={12} md={3}>
+      <h5> {e.qdate_added.slice(0,10)} </h5>
+    </Col>
+  </Row>
+</Grid> )
       } else {
         return ( <div> <h6> {e.answer} </h6> </div> )
       }
@@ -88,7 +95,7 @@ export default class Search extends Component {
       break;
     }
     console.log('TALK TO ME ABOUT NEW ID DOG===>', id);
-    console.log('HERES The new SUB & ID -->', typeof sub, sub, id);
+    // console.log('HERES The new SUB & ID -->', typeof sub, sub, id);
     let url = 'https://project-overflow-db.herokuapp.com/questions';
     axios.post(url, {
       question: newQuestion,
@@ -98,22 +105,36 @@ export default class Search extends Component {
   // this.renderAll();
   }
 
+  renderDocs(){
+    let sub = this.props.match.params.topic;
+    let url = 'https://project-overflow-db.herokuapp.com/documentation/' + sub;
+    axios.get(url).then((res) => {
+
+        // console.log('Show me the res--->', e.topic)
+        // return ( <li> {e.topic} </li> )
+    })
+ }
+
 render(){
   return(
-    <div style={{display: 'inline'}}>
-      <Row> <h1 id='subTitle'> {this.state.search} </h1> </Row>
+    <div>
+    <Grid>
+      <Row> <h1> {this.state.search} </h1> </Row>
       <Row>
           <form onSubmit={this.handleSubmitQ}>
             <FormGroup >
             <FormControl style={{border:'5px lightgray solid'}} id='qVal' type="text" placeholder="Question"/>
             </FormGroup>
           </form>
-        </Row> 
-        <Row>
-          <Col style={styles} xs={6} md={2}> <h2> Documents </h2>  </Col>
-          <Col style={styles} xs={12} md={6}> <h2> Questions </h2> </Col>
-          <Col style={styles} xs={12} md={4}> <h2> Date Added </h2> </Col>
-       </Row>     
+      </Row> 
+      <Row>
+        <Col style={styles} xs={2} md={2}> <h2> Documents </h2>
+          <ul id='docs'> </ul>
+          </Col>
+        <Col style={styles} xs={4} md={7}> <h2> Questions </h2> </Col>
+        <Col style={styles} xs={4} md={3}> <h2> Date Added </h2> </Col>
+      </Row> 
+    </Grid>    
       {this.renderAll()} 
     </div>
     )

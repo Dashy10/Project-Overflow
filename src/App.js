@@ -5,11 +5,11 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import Questions from './components/questions';
 import Topics from './components/Topics';
 import Login from './components/Login';
 import Answers from './components/Answers';
 import SingleQuestion from './components/SingleQuestion';
+import Search from './components/Search';
 
 import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
 
@@ -48,9 +48,10 @@ render() {
           <Route exact path='/contact' component={Contact}/>
           <Route exact path="/about" component={About}/>
           <Route exact path='/login' component={Login}/>
-          <Route path='/topics' component={Topics}/>
+          <Route exact path='/topics' component={Topics}/>
           <Route path='/answers' component={Answers}></Route>
           <Route exact path='/:subject/answers/:id' component={SingleQuestion} />
+          <Route exact path='/topics/:topic' component={Search} />  
         </Switch>
         <Footer/>
       </div>
