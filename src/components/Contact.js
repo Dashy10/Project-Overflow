@@ -49,11 +49,11 @@ const bioDetails = (
         <ul style={{
           listStyle: 'none'
         }} sm={6} md={3}>
-          <li>Name: Dash</li>
-          <li>Username: loRem</li>
+          <li>Name: Dashiell</li>
+          <li>Username: Dashy10</li>
           <li> <a href='https://www.linkedin.com/in/dashiell-lumas-19a667106/'> {socialTabs} </a>
                <a href='https://github.com/Dashy10'> {github} </a> {personal} </li>
-        <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
+        <p>"Full CRUD by today guys?"</p>
         </ul>
       </Col>
       <Col xs={6} md={4}>
@@ -64,7 +64,7 @@ const bioDetails = (
           <li>Username: loRem</li>
           <li> <a href='https://www.linkedin.com/in/edmondoconnell/'> {socialTabs}</a>
                 <a href='https://github.com/eoconnell44'> {github} </a> {personal} </li>
-          <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
+          <p>In the back of the area where the Michael Scott paper company, the quote can be seen written on the white board "You miss 100% of the shots you don't take. -Wayne Gretzky -Michael Scott"</p>
         </ul>
       </Col>
       <Col xs={6} md={4}>
@@ -72,10 +72,10 @@ const bioDetails = (
           listStyle: 'none'
         }} xs={6} md={4}>
           <li>Name: Kyle </li>
-          <li>Username: loRem</li>
+          <li>Username: RockyDennis1</li>
           <li> <a href='https://www.linkedin.com/in/kyle-frable-6978b267/'> {socialTabs}</a>
                <a href='https://github.com/Kfrable'> {github} </a> {personal} </li>
-          <p>Lorm ipsum other things and lorem stuff and thn other more things to do lorem</p>
+          <p>"Its not rocket surgery."</p>
         </ul>
       </Col>
     </Row>
