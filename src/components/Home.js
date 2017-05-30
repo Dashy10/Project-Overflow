@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 const Instructs = () => {
-  return <div style={styles}>
+  return (
+    <div>
+    <div style={styles}>
     <h2 style={{
       textAlign: 'center'
     }}>
@@ -15,6 +17,10 @@ const Instructs = () => {
     <p style={para}>
       To learn more click on the About tab above.</p>
   </div>
+  <div id='sticky-footer-about'></div>
+</div>
+
+  )
 }
 
 const styles = {
@@ -35,8 +41,8 @@ class Home extends Component {
   }
 
   render() {
-    return (<Instructs/>)
-  }
+    return (<Instructs/ >)
+}
 }
 
 export default Home;

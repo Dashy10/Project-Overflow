@@ -26,7 +26,7 @@ export default class SingleQuestion extends Component {
   renderQuestion(){
     let id = parseInt(this.props.match.params.id)
     let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
-    
+
     axios.get(url)
     .then((res) => {
       let data = res.data.question;
@@ -58,28 +58,32 @@ export default class SingleQuestion extends Component {
 
       answering(){
 
-        let url = 'https://project-overflow-db.herokuapp.com/answers' 
+        let url = 'https://project-overflow-db.herokuapp.com/answers'
         let response = document.getElementById('answer').value
-        
+
         console.log(response)
         axios.post(url,{
       answer:response,
       /*aquestion_id:,
       atopic_id:*/
-      
+
      })
       }
 
     render(){
       return(
-        <div id='holder'> 
-        <h1>hello friend</h1> 
+        <div>
+        <div id='holder'>
+        <h1>hello friend</h1>
         {this.renderQuestion()}
         <div style={style}>
         <input id='answer' type='text' placeholder='Answer'/>
         <button onClick={this.answering}>Submit</button>
         </div>
+
         </div>
+        <div id='sticky-footer'></div>
+      </div>
         )
     }
 }
