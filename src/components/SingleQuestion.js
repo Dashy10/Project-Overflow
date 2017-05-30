@@ -64,22 +64,20 @@ export default class SingleQuestion extends Component {
     // })
 
       answering(){
-
         let url = 'https://project-overflow-db.herokuapp.com/answers'
         let response = document.getElementById('answer').value
         let id = this.props.match.params.id
         console.log(id);
         console.log(document.getElementById('h1'));
+        // let id = this.props.params.match.id
+        // console.log(id)
         // let id = document.getElementById()
         console.log('show state', this.props)
         axios.post(url,{
       answer:response,
       aquestion_id: id
      })
-        
       }
-
-
     render(){
       return(
         <div>
