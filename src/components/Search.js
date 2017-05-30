@@ -22,7 +22,6 @@ export default class Search extends Component {
   }
 
   componentDidMount(){
-    console.log('DID this page get hit???');
     this.renderQuestions(); //Render data on page load
     this.renderAll();
     this.renderDocs();
@@ -49,14 +48,22 @@ export default class Search extends Component {
       //   rendered.push(e.question)  
         return ( 
   <Row>
-    <Col style={styles} xs={6} md={2}>
-      {this.renderDocs}
+    <Col style={styles} xs={4} md={2}>   
     </Col>
-    <Col style={styles} xs={8} md={7}>
+    <Col style={styles} xs={4} md={4}>
       <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
     </Col>
-    <Col style={styles} xs={8} md={3}>
+    <Col style={styles} xs={4} md={3}>
       <h5> {e.qdate_added.slice(0,10)} </h5>
+    </Col>
+    <Col style={styles} xs={4} md={1}>
+      <div style={{fontSize: '22'}}> &uarr; </div>
+    </Col>
+    <Col style={styles} xs={4} md={1}>
+      <div style={{fontSize: '22'}}> &darr; </div>
+    </Col>
+    <Col style={styles} xs={4} md={1}>
+      <h5> 0 </h5>
     </Col>
   </Row>
  )
@@ -130,12 +137,14 @@ render(){
           </form>
       </Row> 
       <Row>
-        <Col style={styles} xs={2} md={2}> <h2> Documents </h2>
+        <Col style={styles} xs={4} md={2}> <h2> Documents </h2>
           {docsRender}
-          </Col>
-          }
-        <Col style={styles} xs={4} md={7}> <h2> Questions </h2> </Col>
+          </Col>   
+        <Col style={styles} xs={4} md={4}> <h2> Questions </h2> </Col>
         <Col style={styles} xs={4} md={3}> <h2> Date Added </h2> </Col>
+        <Col style={styles} xs={4} md={1}> <h2>  </h2> </Col>
+        <Col style={styles} xs={4} md={1}> <h2>  </h2> </Col>
+        <Col style={styles} xs={4} md={1}> <h2> Count </h2> </Col>       
       </Row> 
     </Grid>    
       {this.renderAll()} 
