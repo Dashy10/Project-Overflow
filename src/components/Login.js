@@ -23,6 +23,7 @@ class Login extends Component {
             </Col>
           </FormGroup>
         </div>
+        <div id='sticky-footer'></div>
 
       </div>
     )
