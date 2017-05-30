@@ -1,3 +1,7 @@
+body {
+  background-color: #f2fcfe;
+  /*background-color: #bdc3c7;*/
+}
 #title {
   font-size: 35px;
 }
@@ -92,4 +96,9 @@ h1 {
 
 #sticky-footer-about {
   margin-bottom: -80px;
+
+}
+
+.navbar{
+  background-color: black;
 }
