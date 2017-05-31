@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Topics from './components/Topics';
 import Login from './components/Login';
-import Answers from './components/Answers';
 import SingleQuestion from './components/SingleQuestion';
 import Search from './components/Search';
 
@@ -48,10 +47,9 @@ render() {
           <Route exact path='/contact' component={Contact}/>
           <Route exact path="/about" component={About}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/topics' component={Topics}/>
-          <Route path='/answers' component={Answers}></Route>
+          {/* <Route exact path='/topics' component={Topics}/> */}
           <Route exact path='/:subject/answers/:id' component={SingleQuestion} />
-          <Route exact path='/topics/:topic' component={Search} />  
+          <Route exact path='/topics/:topic' component={Search} />
         </Switch>
         <Footer/>
       </div>

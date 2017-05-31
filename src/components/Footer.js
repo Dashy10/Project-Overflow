@@ -7,7 +7,6 @@ const styles = {
   height: '100',
   textAlign: 'center',
   padding: '1% 0 5% 0',
-  // marginTop: '100',
   position: 'relative',
   right: '0',
   bottom: '0',
