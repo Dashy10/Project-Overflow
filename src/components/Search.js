@@ -40,19 +40,14 @@ export default class Search extends Component {
     let url = 'https://project-overflow-db.herokuapp.com/questions/' + this.props.match.params.topic;
     axios.get(url).then((res) => {
       let store = res.data.data
-      // console.log('SHOW ME THE STORED DATA==>', store);
       this.setState({questions: store})
-      // console.log('WHat this show? Only state??', this.state);
     })
   }
 
   renderAll() {
-    let rendered = []; //store all rendered values to prevent dupes
-    // if (this.state.questions !== undefined) {
+    let rendered = [];
     let render = this.state.questions.map(e => {
-      // console.log('Return the MAPPING===>', e);
-      // if(rendered.indexOf(e.question)){
-      //   rendered.push(e.question)
+
       return (
         <Row>
           <Col style={styles} xs={4} md={2}></Col>
@@ -99,7 +94,6 @@ export default class Search extends Component {
 
   handleSubmitQ(e) {
     e.preventDefault();
-    // this.findQuestionId()  Swtich was working but not setting New State ID????
     console.log('SHOW ME STATE ID', this.props);
     let newQuestion = document.getElementById('qVal').value;
     let sub = this.state.search.toLowerCase();
@@ -119,18 +113,16 @@ export default class Search extends Component {
         id = 4;
         break;
     }
-    console.log('TALK TO ME ABOUT NEW ID DOG===>', id);
     let url = 'https://project-overflow-db.herokuapp.com/questions';
-    if(newQuestion !== ""){
+    if (newQuestion !== "") {
       axios.post(url, {
         question: newQuestion,
         qtopic_id: id,
         question_sub: sub
       })
     }
-    document.querySelector('#qVal').value="";
+    document.querySelector('#qVal').value = "";
 
-    // this.renderAll();
   }
 
   renderDocs() {
@@ -138,13 +130,11 @@ export default class Search extends Component {
     let url = 'https://project-overflow-db.herokuapp.com/documentation/' + sub;
     axios.get(url).then(res => {
       this.setState({docs: res.data.data})
-      console.log('SHOW res===>', res)
     })
   }
 
   render() {
     //Docs will only render if they are loaded into state
-    console.log('SHOW STATE DOCS==>', this.state.docs);
     let docsRender = this.state.docs.length && this.state.docs.map(e => {
       return <div>
         <a href={e.url} target='_blank'>
