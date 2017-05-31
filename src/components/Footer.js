@@ -7,7 +7,7 @@ const styles = {
   height: '100',
   textAlign: 'center',
   padding: '1% 0 5% 0',
-  position: 'relative',
+  position: 'absolute',
   right: '0',
   bottom: '0',
   left: '0',
