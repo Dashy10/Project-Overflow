@@ -11,7 +11,7 @@ import {
 import {Link} from 'react-router-dom';
 
 const styles = {
-  overflow: 'scroll'
+  // overflow: 'scroll'
 }
 
 export default class Search extends Component {
@@ -51,19 +51,19 @@ export default class Search extends Component {
       return (
         <Row>
           <Col style={styles} xs={4} md={2}></Col>
-          <Col style={styles} xs={4} md={4}>
+          <Col style={styles} xs={4} md={3}>
             <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}>
               <h4 key={e.qquestion_id}>
                 {e.question}
               </h4>
             </Link>
           </Col>
-          <Col style={styles} xs={4} md={3}>
+          <Col style={styles} xs={4} md={5}>
             <h5>
               {e.qdate_added.slice(0, 10)}
             </h5>
           </Col>
-          <Col style={styles} xs={4} md={1}>
+          {/* <Col style={styles} xs={4} md={1}>
             <div style={{
               fontSize: '22'
             }}>
@@ -81,7 +81,7 @@ export default class Search extends Component {
             <h5>
               0
             </h5>
-          </Col>
+          </Col> */}
         </Row>
       )
     })
@@ -164,32 +164,36 @@ export default class Search extends Component {
               <h2>
                 Documents
               </h2>
-              {docsRender}
+              <div id='documentation-list'>
+                {docsRender}
+              </div>
+
             </Col>
-            <Col style={styles} xs={4} md={4}>
+            <Col style={styles} xs={4} md={7}>
               <h2>
                 Questions
               </h2>
+              {this.renderAll()}
             </Col>
             <Col style={styles} xs={4} md={3}>
-              <h2>
+              <h2 id='date'>
                 Date Added
               </h2>
             </Col>
-            <Col style={styles} xs={4} md={1}>
+            {/* <Col style={styles} xs={4} md={1}>
               <h2></h2>
             </Col>
             <Col style={styles} xs={4} md={1}>
               <h2></h2>
-            </Col>
-            <Col style={styles} xs={4} md={1}>
+            </Col> */}
+            {/* <Col style={styles} xs={4} md={1}>
               <h2>
-                Count
+                Rating
               </h2>
-            </Col>
+            </Col> */}
           </Row>
         </Grid>
-        {this.renderAll()}
+
       </div>
     )
   }

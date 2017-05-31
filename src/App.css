@@ -123,3 +123,10 @@ h1 {
   background:#F1F2B5;
   /*border: 1px solid grey;*/
 }
+
+#date {
+  position: relative;
+  right: 50px;
+
+
+}
