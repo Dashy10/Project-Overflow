@@ -1,4 +1,29 @@
+* {
+  margin: 0 auto;
+}
 
+html, body {
+  margin: 0 auto;
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom:-142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.site-footer, .page-wrap:after {
+  height: 142px;
+}
+
+.site-footer {
+  flex: 1 0 auto;
+}
 
 body {
   background-color: #f2fcfe;
@@ -93,7 +118,7 @@ h1 {
 }
 
 #sticky-footer {
-  margin-bottom: 400px
+  margin-bottom: 50px !important;
 }
 
 #sticky-footer-about {
@@ -122,4 +147,21 @@ h1 {
 #answer {
   background:#F1F2B5;
   /*border: 1px solid grey;*/
+}
+
+#date {
+  position: relative;
+  right: 50px;
+
+
+}
+
+#documentation-list {
+  position: relative;
+  right: 70px;
+  width: 300px;
+}
+
+#single-question {
+  text-align: center;
 }
