@@ -63,13 +63,14 @@ export default class SingleQuestion extends Component {
       <div>
         <div id='holder'>
           <h2 id='single-question'>{this.state.question}</h2>
-          <ul>{this.state.answer.map(res => <li className='answer-list'>{(!this.state.edit)
+          <div className='answer-container'>{this.state.answer.map(res => <p className='answer-list'>{(!this.state.edit)
                 ? res.answer
                 : <input type="text" placeholder={res.answer}/>}
+                <br />
               <button>
                 Delete</button>
               <button onClick={() => this.editAnswer()}>Edit</button>
-            </li>)}</ul>
+            </p>)}</div>
           {(!this.state.edit)
             ? (
               <div style={style}>
