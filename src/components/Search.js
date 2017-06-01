@@ -120,6 +120,9 @@ export default class Search extends Component {
         qtopic_id: id,
         question_sub: sub
       })
+      .then((res) => {
+         window.location.reload();
+     })
     }
     document.querySelector('#qVal').value = "";
 

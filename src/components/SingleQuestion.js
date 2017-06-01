@@ -29,9 +29,9 @@ export default class SingleQuestion extends Component {
     axios.get(url).then((res) => {
       console.log(res.data.question[0]);
       this.setState({data: res.data.question[0], question: res.data.question[0].question, answer: res.data.answer})
+
     });
   }
-
 
   answering() {
     let url = 'https://project-overflow-db.herokuapp.com/answers'
@@ -42,6 +42,9 @@ export default class SingleQuestion extends Component {
         answer: response,
         aquestion_id: id
       })
+      .then((res) => {
+         window.location.reload();
+     })
     }
     document.querySelector("#answer").value = "";
   }
@@ -62,7 +65,7 @@ export default class SingleQuestion extends Component {
             ? (
               <div style={style}>
                 <input id='answer' type='text' placeholder='Answer'/>
-                <button onClick={this.answering}>Submit</button>
+                <button className="button-margin" onClick={this.answering}>Submit</button>
                 <button onClick={() => this.editAnswer()}>Edit</button>
               </div>
             )
@@ -83,38 +86,38 @@ export default class SingleQuestion extends Component {
 // make an axios call that gets all the data
 // set the state of data just pulled
 // map over that data
-  // 
-  // renderQuestion() {
-  //
-  //   //   let id = parseInt(this.props.match.params.id)
-  //   //   let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
-  //   //   return(
-  //   //   axios.get(url).then((res) => {
-  //   //     let data = res.data.question;
-  //   //     let answ = res.data.answer;
-  //   //     for (let i = 0; i < data.length; i++) {
-  //   //       console.log('THIS IS WHAT TO LOOK AT ----->', data[i].question);
-  //   //       let asked = document.createElement('h1')
-  //   //       asked.setAttribute('id', id)
-  //   //       console.log(asked)
-  //   //       let holder = document.getElementById('holder')
-  //   //       asked.innerHTML = data[i].question;
-  //   //       holder.appendChild(asked);
-  //   //     }
-  //   //     console.log('answ------', answ)
-  //   //     // this.setState({answ: answ})
-  //   //     answ = answ.map( el => <h1>{el.answer}</h1>)
-  //   //     console.log('answ', answ)
-  //   //
-  //   //     return answ;
-  //   //
-  //   //     // for (let i = 0; i < answ.length; i++) {
-  //   //     //   let holder = document.getElementById('holder');
-  //   //     //   let li = document.createElement('li')
-  //   //     //   li.innerHTML = answ[i].answer;
-  //   //     //   li.setAttribute('class', 'answer-list')
-  //   //     //   holder.appendChild(li);
-  //   //     // }
-  //   //   })
-  //   // )
-  // }
+//
+// renderQuestion() {
+//
+//   //   let id = parseInt(this.props.match.params.id)
+//   //   let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
+//   //   return(
+//   //   axios.get(url).then((res) => {
+//   //     let data = res.data.question;
+//   //     let answ = res.data.answer;
+//   //     for (let i = 0; i < data.length; i++) {
+//   //       console.log('THIS IS WHAT TO LOOK AT ----->', data[i].question);
+//   //       let asked = document.createElement('h1')
+//   //       asked.setAttribute('id', id)
+//   //       console.log(asked)
+//   //       let holder = document.getElementById('holder')
+//   //       asked.innerHTML = data[i].question;
+//   //       holder.appendChild(asked);
+//   //     }
+//   //     console.log('answ------', answ)
+//   //     // this.setState({answ: answ})
+//   //     answ = answ.map( el => <h1>{el.answer}</h1>)
+//   //     console.log('answ', answ)
+//   //
+//   //     return answ;
+//   //
+//   //     // for (let i = 0; i < answ.length; i++) {
+//   //     //   let holder = document.getElementById('holder');
+//   //     //   let li = document.createElement('li')
+//   //     //   li.innerHTML = answ[i].answer;
+//   //     //   li.setAttribute('class', 'answer-list')
+//   //     //   holder.appendChild(li);
+//   //     // }
+//   //   })
+//   // )
+// }
