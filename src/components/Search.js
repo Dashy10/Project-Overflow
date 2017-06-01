@@ -3,9 +3,7 @@ import axios from 'axios';
 import {Grid, Row, Col, FormControl, Button, FormGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const styles = {
-  overflow: 'scroll'
-}
+const styles = { overflow: 'scroll' }
 
 export default class Search extends Component {
   constructor(props) {
@@ -53,7 +51,7 @@ export default class Search extends Component {
     <Col style={styles} xs={4} md={2}>   
     </Col>
     <Col style={styles} xs={4} md={4}>
-      <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 key={e.qquestion_id}> {e.question} </h4> </Link>  
+      <Link to={`/${e.question_sub}/answers/${e.qquestion_id}`}> <h4 data-id={e.qquestion_id} key={e.qquestion_id}> {e.question} </h4> </Link>  
     </Col>
     <Col style={styles} xs={4} md={3}>
       <h5> {e.qdate_added.slice(0,10)} </h5>
@@ -82,6 +80,7 @@ export default class Search extends Component {
   e.preventDefault();
   // this.findQuestionId()  Swtich was working but not setting New State ID????
   console.log('SHOW ME STATE ID', this.props);
+  let input = document.getElementById('qVal')
   let newQuestion = document.getElementById('qVal').value;
   let sub = this.state.search.toLowerCase();
   let id = this.state.qtopic_id 
@@ -96,15 +95,26 @@ export default class Search extends Component {
       case 'node': id = 4;
       break;
     }
-    console.log('TALK TO ME ABOUT NEW ID DOG===>', id);
-    // console.log('HERES The new SUB & ID -->', typeof sub, sub, id);
+    // console.log('TALK TO ME ABOUT NEW ID DOG===>', id);
     let url = 'https://project-overflow-db.herokuapp.com/questions';
     axios.post(url, {
       question: newQuestion,
       qtopic_id: id,
       question_sub: sub,
     })
+    // window.location.reload();
+    input.value = ''
+    this.sendtToQuestion();
+    // window.location.assign(`/topics/${sub}/${qId}`)
   // this.renderAll();
+  }
+  sendtToQuestion(){
+    console.log('fuction working???');
+    let sub = this.props.match.params.topic;
+    let dataId = document.querySelector('[data-id]')
+    let qId =  1 + parseInt(dataId.getAttribute('data-id'))
+    // window.location.assign(`/topics/${sub}/${qId}`)
+    console.log('Show me the idddddd==>', qId);
   }
 
   renderDocs(){
