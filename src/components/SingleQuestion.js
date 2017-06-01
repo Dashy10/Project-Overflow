@@ -51,12 +51,21 @@ export default class SingleQuestion extends Component {
   // binding
   editAnswer() {
     this.setState({edit: true})
+    let id = this.props.match.params.id;
+    let edited_answer = document.getElementById('edit-answer').value;
+    console.log(edited_answer);
+    axios.patch('https://project-overflow-db.herokuapp.com/answers/' +id, {
+      answer: edited_answer
+    })
   }
 
+
+
   deleteAnswer() {
-    let url = 'https://project-overflow-db.herokuapp.com/answers' + id
-    let id = this.props.match.params.id
-    axios.delete()
+    let id = this.props.match.params.id;
+    axios.delete('https://project-overflow-db.herokuapp.com/answers/' + id, {answer_id: id}).then((res) => {
+      window.location.reload();
+    })
   }
   render() {
     return (
@@ -65,9 +74,9 @@ export default class SingleQuestion extends Component {
           <h2 id='single-question'>{this.state.question}</h2>
           <div className='answer-container'>{this.state.answer.map(res => <p className='answer-list'>{(!this.state.edit)
                 ? res.answer
-                : <input type="text" placeholder={res.answer}/>}
-                <br />
-              <button>
+                : <input id='edit-answer' type="text" placeholder={res.answer}/>}
+              <br/>
+              <button onClick={() => this.deleteAnswer()}>
                 Delete</button>
               <button onClick={() => this.editAnswer()}>Edit</button>
             </p>)}</div>
