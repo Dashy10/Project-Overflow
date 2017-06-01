@@ -121,6 +121,9 @@ export default class Search extends Component {
         qtopic_id: id,
         question_sub: sub
       })
+      .then((res) => {
+         window.location.reload();
+     })
     }
     document.querySelector('#qVal').value = "";
   }
@@ -151,7 +154,7 @@ export default class Search extends Component {
       </div>
     })
     return (
-      <div>
+      <div id='sticky-footer'>
         <Grid >
           <Row>
             <h1>

@@ -28,7 +28,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <Navbar fixedBottom="true">
+      <Navbar fixedBottom='false'>
         <h4 style={projTitle}>ProjectOverflow &copy; 2017</h4>
       </Navbar>
     )

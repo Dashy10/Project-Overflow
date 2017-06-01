@@ -21,6 +21,7 @@ export default class SingleQuestion extends Component {
 
     this.answering = this.answering.bind(this)
     this.editAnswer = this.editAnswer.bind(this)
+    this.deleteAnswer = this.deleteAnswer.bind(this)
   }
   // use this to retrieve all questions
   componentDidMount() {
@@ -29,9 +30,9 @@ export default class SingleQuestion extends Component {
     axios.get(url).then((res) => {
       console.log(res.data.question[0]);
       this.setState({data: res.data.question[0], question: res.data.question[0].question, answer: res.data.answer})
+
     });
   }
-
 
   answering() {
     let url = 'https://project-overflow-db.herokuapp.com/answers'
@@ -41,6 +42,8 @@ export default class SingleQuestion extends Component {
       axios.post(url, {
         answer: response,
         aquestion_id: id
+      }).then((res) => {
+        window.location.reload();
       })
     }
     document.querySelector("#answer").value = "";
@@ -48,27 +51,48 @@ export default class SingleQuestion extends Component {
   // binding
   editAnswer() {
     this.setState({edit: true})
+    let id = this.props.match.params.id;
+    let edited_answer = document.getElementById('edit-answer').value;
+    console.log(edited_answer);
+    axios.patch('https://project-overflow-db.herokuapp.com/answers/' +id, {
+      answer: edited_answer
+    })
+  }
+
+
+
+  deleteAnswer() {
+    let id = this.props.match.params.id;
+    axios.delete('https://project-overflow-db.herokuapp.com/answers/' + id, {answer_id: id}).then((res) => {
+      window.location.reload();
+    })
   }
   render() {
     return (
       <div>
         <div id='holder'>
           <h2 id='single-question'>{this.state.question}</h2>
-          <ul>{this.state.answer.map(res => <li className='answer-list'>{(!this.state.edit)
+          <div className='answer-container'>{this.state.answer.map(res => <p className='answer-list'>{(!this.state.edit)
                 ? res.answer
-                : res.answer}</li>)}</ul>
-          {/* {this.renderQuestion()} */}
+                : <input id='edit-answer' type="text" placeholder={res.answer}/>}
+              <br/>
+              <button onClick={() => this.deleteAnswer()}>
+                Delete</button>
+              <button onClick={() => this.editAnswer()}>Edit</button>
+            </p>)}</div>
           {(!this.state.edit)
             ? (
               <div style={style}>
                 <input id='answer' type='text' placeholder='Answer'/>
-                <button onClick={this.answering}>Submit</button>
-                <button onClick={() => this.editAnswer()}>Edit</button>
+                <button className="button-margin" onClick={this.answering}>Submit</button>
+
               </div>
             )
             : (
-              <div><input type="text" defaultValue="hello"/>
-                <button>edit</button>
+              <div style={style}>
+                <input id='answer' type='text' placeholder='Answer'/>
+                <button className="button-margin" onClick={this.answering}>Submit</button>
+
               </div>
             )
 }
@@ -83,38 +107,38 @@ export default class SingleQuestion extends Component {
 // make an axios call that gets all the data
 // set the state of data just pulled
 // map over that data
-  // 
-  // renderQuestion() {
-  //
-  //   //   let id = parseInt(this.props.match.params.id)
-  //   //   let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
-  //   //   return(
-  //   //   axios.get(url).then((res) => {
-  //   //     let data = res.data.question;
-  //   //     let answ = res.data.answer;
-  //   //     for (let i = 0; i < data.length; i++) {
-  //   //       console.log('THIS IS WHAT TO LOOK AT ----->', data[i].question);
-  //   //       let asked = document.createElement('h1')
-  //   //       asked.setAttribute('id', id)
-  //   //       console.log(asked)
-  //   //       let holder = document.getElementById('holder')
-  //   //       asked.innerHTML = data[i].question;
-  //   //       holder.appendChild(asked);
-  //   //     }
-  //   //     console.log('answ------', answ)
-  //   //     // this.setState({answ: answ})
-  //   //     answ = answ.map( el => <h1>{el.answer}</h1>)
-  //   //     console.log('answ', answ)
-  //   //
-  //   //     return answ;
-  //   //
-  //   //     // for (let i = 0; i < answ.length; i++) {
-  //   //     //   let holder = document.getElementById('holder');
-  //   //     //   let li = document.createElement('li')
-  //   //     //   li.innerHTML = answ[i].answer;
-  //   //     //   li.setAttribute('class', 'answer-list')
-  //   //     //   holder.appendChild(li);
-  //   //     // }
-  //   //   })
-  //   // )
-  // }
+//
+// renderQuestion() {
+//
+//   //   let id = parseInt(this.props.match.params.id)
+//   //   let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
+//   //   return(
+//   //   axios.get(url).then((res) => {
+//   //     let data = res.data.question;
+//   //     let answ = res.data.answer;
+//   //     for (let i = 0; i < data.length; i++) {
+//   //       console.log('THIS IS WHAT TO LOOK AT ----->', data[i].question);
+//   //       let asked = document.createElement('h1')
+//   //       asked.setAttribute('id', id)
+//   //       console.log(asked)
+//   //       let holder = document.getElementById('holder')
+//   //       asked.innerHTML = data[i].question;
+//   //       holder.appendChild(asked);
+//   //     }
+//   //     console.log('answ------', answ)
+//   //     // this.setState({answ: answ})
+//   //     answ = answ.map( el => <h1>{el.answer}</h1>)
+//   //     console.log('answ', answ)
+//   //
+//   //     return answ;
+//   //
+//   //     // for (let i = 0; i < answ.length; i++) {
+//   //     //   let holder = document.getElementById('holder');
+//   //     //   let li = document.createElement('li')
+//   //     //   li.innerHTML = answ[i].answer;
+//   //     //   li.setAttribute('class', 'answer-list')
+//   //     //   holder.appendChild(li);
+//   //     // }
+//   //   })
+//   // )
+// }
