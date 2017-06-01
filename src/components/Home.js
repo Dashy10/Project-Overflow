@@ -31,7 +31,7 @@ const para = {
   fontSize: '24',
   margin: '10px 15%',
   textAlign: 'center',
-  padding: '50',
+  padding: '75',
   width: '70%'
 }
 

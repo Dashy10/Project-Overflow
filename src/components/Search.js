@@ -193,7 +193,7 @@ export default class Search extends Component {
             </Col> */}
           </Row>
         </Grid>
-
+        <div id='sticky-footer'></div>
       </div>
     )
   }
