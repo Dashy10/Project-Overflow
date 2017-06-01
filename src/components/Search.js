@@ -143,7 +143,7 @@ export default class Search extends Component {
       </div>
     })
     return (
-      <div>
+      <div id='sticky-footer'>
         <Grid >
           <Row>
             <h1>
