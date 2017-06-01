@@ -14,6 +14,7 @@ const styles = {
   // overflow: 'scroll'
 }
 
+
 export default class Search extends Component {
   constructor(props) {
     super(props)
@@ -122,7 +123,14 @@ export default class Search extends Component {
       })
     }
     document.querySelector('#qVal').value = "";
-
+  }
+  sendtToQuestion(){
+    console.log('fuction working???');
+    let sub = this.props.match.params.topic;
+    let dataId = document.querySelector('[data-id]')
+    let qId =  1 + parseInt(dataId.getAttribute('data-id'))
+    // window.location.assign(`/topics/${sub}/${qId}`)
+    console.log('Show me the idddddd==>', qId);
   }
 
   renderDocs() {
