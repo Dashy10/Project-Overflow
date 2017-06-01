@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Bootstrap, Navbar} from 'react-bootstrap';
 
 const styles = {
   backgroundColor: 'rgb(26,26,26)',
@@ -16,7 +17,8 @@ const styles = {
   marginTop: '105px auto'
 }
 const projTitle = {
-  fontSize: '28'
+  fontSize: '28',
+  textAlign:'center'
 }
 
 class Footer extends Component {
@@ -26,10 +28,9 @@ class Footer extends Component {
 
   render() {
     return (
-      // <div style={styles}>
-      //
-      // </div>
-      <footer style={styles} className='site-footer'><h4 style={projTitle}>ProjectOverflow &copy; 2017</h4></footer>
+      <Navbar fixedBottom="true">
+        <h4 style={projTitle}>ProjectOverflow &copy; 2017</h4>
+      </Navbar>
     )
   }
 }
