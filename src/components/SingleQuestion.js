@@ -21,6 +21,7 @@ export default class SingleQuestion extends Component {
 
     this.answering = this.answering.bind(this)
     this.editAnswer = this.editAnswer.bind(this)
+    this.deleteAnswer = this.deleteAnswer.bind(this)
   }
   // use this to retrieve all questions
   componentDidMount() {
@@ -41,16 +42,21 @@ export default class SingleQuestion extends Component {
       axios.post(url, {
         answer: response,
         aquestion_id: id
+      }).then((res) => {
+        window.location.reload();
       })
-      .then((res) => {
-         window.location.reload();
-     })
     }
     document.querySelector("#answer").value = "";
   }
   // binding
   editAnswer() {
     this.setState({edit: true})
+  }
+
+  deleteAnswer() {
+    let url = 'https://project-overflow-db.herokuapp.com/answers' + id
+    let id = this.props.match.params.id
+    axios.delete()
   }
   render() {
     return (
@@ -59,19 +65,24 @@ export default class SingleQuestion extends Component {
           <h2 id='single-question'>{this.state.question}</h2>
           <ul>{this.state.answer.map(res => <li className='answer-list'>{(!this.state.edit)
                 ? res.answer
-                : res.answer}</li>)}</ul>
-          {/* {this.renderQuestion()} */}
+                : <input type="text" placeholder={res.answer}/>}
+              <button>
+                Delete</button>
+              <button onClick={() => this.editAnswer()}>Edit</button>
+            </li>)}</ul>
           {(!this.state.edit)
             ? (
               <div style={style}>
                 <input id='answer' type='text' placeholder='Answer'/>
                 <button className="button-margin" onClick={this.answering}>Submit</button>
-                <button onClick={() => this.editAnswer()}>Edit</button>
+
               </div>
             )
             : (
-              <div><input type="text" defaultValue="hello"/>
-                <button>edit</button>
+              <div style={style}>
+                <input id='answer' type='text' placeholder='Answer'/>
+                <button className="button-margin" onClick={this.answering}>Submit</button>
+
               </div>
             )
 }
