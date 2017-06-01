@@ -22,39 +22,39 @@ class App extends Component {
     }
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     let query = document.getElementById('newVal').value.toLowerCase();
     let cap = query.charAt(0).toUpperCase()
     let x = query.slice(1)
     let compo = cap + x
     console.log('Upper case working--.', compo);
-    this.setState({
-      search: query
-    })
+    this.setState({search: query})
     console.log(this.state);
     window.location.assign('/topics/' + query)
   }
 
+  render() {
+    return (
 
-render() {
-  return (
-    <Router>
-      <div>
-        <Header onSubmit={(event) => this.handleSubmit(event)} />
-        <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/contact' component={Contact}/>
-          <Route exact path="/about" component={About}/>
-          <Route exact path='/login' component={Login}/>
-          {/* <Route exact path='/topics' component={Topics}/> */}
-          <Route exact path='/:subject/answers/:id' component={SingleQuestion} />
-          <Route exact path='/topics/:topic' component={Search} />
-        </Switch>
-        <Footer/>
-      </div>
-    </Router>
-   );
+      <Router>
+        <div>
+          <div class="page-wrap">
+            <Header onSubmit={(event) => this.handleSubmit(event)}/>
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route exact path='/contact' component={Contact}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path='/login' component={Login}/> {/* <Route exact path='/topics' component={Topics}/> */}
+              <Route exact path='/:subject/answers/:id' component={SingleQuestion}/>
+              <Route exact path='/topics/:topic' component={Search}/>
+            </Switch>
+          </div>
+          <Footer/>
+        </div>
+      </Router>
+
+    );
   }
 }
 
