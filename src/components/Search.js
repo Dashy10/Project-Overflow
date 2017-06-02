@@ -63,25 +63,7 @@ export default class Search extends Component {
               {e.qdate_added.slice(0, 10)}
             </h5>
           </Col>
-          {/* <Col style={styles} xs={4} md={1}>
-            <div style={{
-              fontSize: '22'
-            }}>
-              &uarr;
-            </div>
-          </Col>
-          <Col style={styles} xs={4} md={1}>
-            <div style={{
-              fontSize: '22'
-            }}>
-              &darr;
-            </div>
-          </Col>
-          <Col style={styles} xs={4} md={1}>
-            <h5>
-              0
-            </h5>
-          </Col> */}
+
         </Row>
       )
     })
@@ -183,17 +165,7 @@ export default class Search extends Component {
                 Date Added
               </h2>
             </Col>
-            {/* <Col style={styles} xs={4} md={1}>
-              <h2></h2>
-            </Col>
-            <Col style={styles} xs={4} md={1}>
-              <h2></h2>
-            </Col> */}
-            {/* <Col style={styles} xs={4} md={1}>
-              <h2>
-                Rating
-              </h2>
-            </Col> */}
+          
           </Row>
         </Grid>
         <div id='sticky-footer'></div>

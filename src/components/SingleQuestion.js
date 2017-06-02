@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 const style = {
   margin: 'auto',
+  marginTop: '20px',
   display: 'table'
 }
 
@@ -11,12 +12,12 @@ export default class SingleQuestion extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      answer: [],
       aquestion_id: [],
       atopic_id: [],
       question: '',
       answer: [],
-      edit: false
+      edit: false,
+      answer_id: []
     }
 
     this.answering = this.answering.bind(this)
@@ -52,50 +53,52 @@ export default class SingleQuestion extends Component {
   editAnswer() {
     this.setState({edit: true})
     let id = this.props.match.params.id;
-    let edited_answer = document.getElementById('edit-answer').value;
-    console.log(edited_answer);
-    axios.patch('https://project-overflow-db.herokuapp.com/answers/' +id, {
-      answer: edited_answer
-    })
+    // let edited_answer = document.getElementById('edit-answer').value;
+    // console.log(edited_answer);
+    // axios.patch('https://project-overflow-db.herokuapp.com/answers/' + id, {answer: edited_answer})
   }
-
-
+  // give p the key
+  // this.event or event
 
   deleteAnswer() {
     let id = this.props.match.params.id;
-    axios.delete('https://project-overflow-db.herokuapp.com/answers/' + id, {answer_id: id}).then((res) => {
-      window.location.reload();
+    console.log(id);
+    axios.delete('https://project-overflow-db.herokuapp.com/answers/' + id, {
+      answer_id: id
     })
+    window.location.reload();
   }
   render() {
     return (
       <div>
         <div id='holder'>
           <h2 id='single-question'>{this.state.question}</h2>
-          <div className='answer-container'>{this.state.answer.map(res => <p className='answer-list'>{(!this.state.edit)
-                ? res.answer
-                : <input id='edit-answer' type="text" placeholder={res.answer}/>}
-              <br/>
-              <button onClick={() => this.deleteAnswer()}>
-                Delete</button>
-              <button onClick={() => this.editAnswer()}>Edit</button>
-            </p>)}</div>
-          {(!this.state.edit)
-            ? (
-              <div style={style}>
-                <input id='answer' type='text' placeholder='Answer'/>
-                <button className="button-margin" onClick={this.answering}>Submit</button>
+          {this.state.answer.map((res) => {
+            if (!this.state.edit) {
+              return (
+                <div className='answer-container'>
+                  <p className='answer-list'>{res.answer}</p>
+                  <button onClick={() => this.editAnswer()}>Edit</button>
+                  <button onClick={() => this.deleteAnswer()}>Delete</button>
+                </div>
+              )
+            } else {
+              return (
+                <div className='answer-container'>
+                  <input id='edit-answer' type='text' placeholder={res.answer}/>
+                  <button onClick={() => this.editAnswer()}>Edit</button>
+                  <button onClick={() => this.deleteAnswer()}>Delete</button>
+                </div>
+              )
 
-              </div>
-            )
-            : (
-              <div style={style}>
-                <input id='answer' type='text' placeholder='Answer'/>
-                <button className="button-margin" onClick={this.answering}>Submit</button>
+            }
 
-              </div>
-            )
+          })
 }
+        </div>
+        <div style={style}>
+          <input id='answer' type='text' placeholder='Answer'/>
+          <button className="button-margin" onClick={this.answering}>Submit</button>
 
         </div>
         <div id='sticky-footer'></div>
@@ -103,42 +106,3 @@ export default class SingleQuestion extends Component {
     )
   }
 }
-
-// make an axios call that gets all the data
-// set the state of data just pulled
-// map over that data
-//
-// renderQuestion() {
-//
-//   //   let id = parseInt(this.props.match.params.id)
-//   //   let url = 'https://project-overflow-db.herokuapp.com/QAS/' + id
-//   //   return(
-//   //   axios.get(url).then((res) => {
-//   //     let data = res.data.question;
-//   //     let answ = res.data.answer;
-//   //     for (let i = 0; i < data.length; i++) {
-//   //       console.log('THIS IS WHAT TO LOOK AT ----->', data[i].question);
-//   //       let asked = document.createElement('h1')
-//   //       asked.setAttribute('id', id)
-//   //       console.log(asked)
-//   //       let holder = document.getElementById('holder')
-//   //       asked.innerHTML = data[i].question;
-//   //       holder.appendChild(asked);
-//   //     }
-//   //     console.log('answ------', answ)
-//   //     // this.setState({answ: answ})
-//   //     answ = answ.map( el => <h1>{el.answer}</h1>)
-//   //     console.log('answ', answ)
-//   //
-//   //     return answ;
-//   //
-//   //     // for (let i = 0; i < answ.length; i++) {
-//   //     //   let holder = document.getElementById('holder');
-//   //     //   let li = document.createElement('li')
-//   //     //   li.innerHTML = answ[i].answer;
-//   //     //   li.setAttribute('class', 'answer-list')
-//   //     //   holder.appendChild(li);
-//   //     // }
-//   //   })
-//   // )
-// }
