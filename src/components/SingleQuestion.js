@@ -78,7 +78,7 @@ export default class SingleQuestion extends Component {
               return (
                 <div className='answer-container'>
                   <p className='answer-list'>{res.answer}</p>
-                  <button onClick={() => this.editAnswer()}>Edit</button>
+                  {/* <button onClick={() => this.editAnswer()}>Edit</button> */}
                   <button onClick={() => this.deleteAnswer()}>Delete</button>
                 </div>
               )
@@ -86,7 +86,7 @@ export default class SingleQuestion extends Component {
               return (
                 <div className='answer-container'>
                   <input id='edit-answer' type='text' placeholder={res.answer}/>
-                  <button onClick={() => this.editAnswer()}>Edit</button>
+                  {/* <button onClick={() => this.editAnswer()}>Edit</button> */}
                   <button onClick={() => this.deleteAnswer()}>Delete</button>
                 </div>
               )
