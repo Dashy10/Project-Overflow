@@ -29,10 +29,10 @@ const styles = {
 
 const para = {
   fontSize: '24',
-  margin: '10px 15%',
+  margin: '10px auto',
   textAlign: 'center',
   padding: '75',
-  width: '70%'
+  width: '90%'
 }
 
 class Home extends Component {

@@ -6,7 +6,8 @@
 
 [Database Repository](https://github.com/Dashy10/Project-Overflow-DB)
 
-[Link to Deployed Application](https://project-overflow-trustdxdgl.now.sh)
+[Link to Deployed Application](https://project-overflow-feqhakhvfm.now.sh/)
+
 
 ## Overview
 
