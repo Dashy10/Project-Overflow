@@ -1,21 +1,6 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom'
-import About from './About';
-import Account from './Account';
-import Topics from './Topics';
-import Contact from './Contact';
-import {
-  Bootstrap,
-  Button,
-  DropdownButton,
-  MenuItem,
-  Nav,
-  NavItem,
-  Navbar,
-  NavDropdown,
-  FormGroup,
-  FormControl
-} from 'react-bootstrap';
+// import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom'
+import { MenuItem, Nav, NavItem, Navbar, NavDropdown, FormGroup, FormControl } from 'react-bootstrap';
 
 class Header extends Component {
   constructor(props) {

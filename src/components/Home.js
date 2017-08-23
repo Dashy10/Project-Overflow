@@ -24,14 +24,14 @@ const Instructs = () => {
 }
 
 const styles = {
-  fontSize: '28'
+  fontSize: '28px'
 }
 
 const para = {
-  fontSize: '24',
+  fontSize: '24px',
   margin: '10px auto',
   textAlign: 'center',
-  padding: '75',
+  padding: '75px',
   width: '90%'
 }
 

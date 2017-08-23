@@ -1,16 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Search from './Search';
-import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
-import {
-  Image,
-  Grid,
-  Row,
-  Col,
-  FormControl,
-  Button,
-  FormGroup
-} from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 const styles = {
   textAlign: 'left',
@@ -25,7 +15,6 @@ export default class Topics extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props.match.path);
   }
 
   getAllDocuments(props) {

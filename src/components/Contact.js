@@ -6,7 +6,7 @@ const title = {
   textAlign: 'center',
   margin: '2.5%'
 }
-
+//src="http://i1356.photobucket.com/albums/q732/oconnelle3/linkedinpic_zpsgjmixare.jpg"
 const styles = {
   height: '200',
   width: '200',
@@ -32,27 +32,27 @@ const socialTabs = (<img style={{
   width: '25px',
   borderRadius: '50%',
   margin: '5px'
-}} src='https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300'/>)
+}} alt='social' src='https://lh3.googleusercontent.com/00APBMVQh3yraN704gKCeM63KzeQ-zHUi5wK6E9TjRQ26McyqYBt-zy__4i8GXDAfeys=w300'/>)
 
 const github = (<img style={{
   height: '25px',
   width: '25px',
   borderRadius: '50%',
   margin: '5px'
-}} src='https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png'/>)
+}} alt='github' src='https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png'/>)
 
 const personal = (<img style={{
   height: '25px',
   width: '25px',
   borderRadius: '50%',
   margin: '5px'
-}} src='https://www.microsoft.com/en-us/research/wp-content/themes/microsoft-research-theme/images/blank-avatar.png'/>)
+}} alt='personal' src='https://www.microsoft.com/en-us/research/wp-content/themes/microsoft-research-theme/images/blank-avatar.png'/>)
 
 const bioDetails = (
   <Grid>
     <Row>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/dash_zpsrcuwn7si.jpeg" circle/>
+        <Image style={styles} src={require('../images/dash.jpeg')} alt='Dash picture' circle/>
         <ul style={{
           listStyle: 'none'
         }} sm={6} md={3}>
@@ -71,7 +71,7 @@ const bioDetails = (
         </ul>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/linkedinpic_zpsgjmixare.jpg" circle/>
+        <Image style={styles} src={require('../images/linkedinpic.jpg')} alt='Eds picture' circle/>
         <ul style={{
           listStyle: 'none'
         }} xs={6} md={4}>
@@ -89,7 +89,7 @@ const bioDetails = (
         </ul>
       </Col>
       <Col xs={6} md={4}>
-        <Image style={styles} src="http://i1356.photobucket.com/albums/q732/oconnelle3/kyle_zpssro6q31i.jpeg" circle/>
+        <Image style={styles} src={require('../images/kyle.jpeg')} alt='Kyle picture' circle/>
         <ul style={{
           listStyle: 'none'
         }} xs={6} md={4}>

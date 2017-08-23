@@ -5,12 +5,10 @@ import Header from './components/Header';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import Topics from './components/Topics';
 import Login from './components/Login';
 import SingleQuestion from './components/SingleQuestion';
 import Search from './components/Search';
-
-import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -28,9 +26,7 @@ class App extends Component {
     let cap = query.charAt(0).toUpperCase()
     let x = query.slice(1)
     let compo = cap + x
-    console.log('Upper case working--.', compo);
     this.setState({search: query})
-    console.log(this.state);
     window.location.assign('/topics/' + query)
   }
 
@@ -39,7 +35,7 @@ class App extends Component {
 
       <Router>
         <div>
-          <div class="page-wrap">
+          <div className="page-wrap">
             <Header onSubmit={(event) => this.handleSubmit(event)}/>
             <Switch>
               <Route exact path='/' component={Home}/>

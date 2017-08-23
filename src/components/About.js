@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, Grid, Row, Col} from 'react-bootstrap';
+import { Grid, Row, Col} from 'react-bootstrap';
 
 const gridInstance = (
   <Grid style={{

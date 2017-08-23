@@ -5,7 +5,6 @@ import {
   Row,
   Col,
   FormControl,
-  Button,
   FormGroup
 } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
@@ -46,7 +45,6 @@ export default class Search extends Component {
   }
 
   renderAll() {
-    let rendered = [];
     let render = this.state.questions.map(e => {
 
       return (
@@ -77,7 +75,6 @@ export default class Search extends Component {
 
   handleSubmitQ(e) {
     e.preventDefault();
-    console.log('SHOW ME STATE ID', this.props);
     let newQuestion = document.getElementById('qVal').value;
     let sub = this.state.search.toLowerCase();
     let id = this.state.qtopic_id
@@ -110,12 +107,9 @@ export default class Search extends Component {
     document.querySelector('#qVal').value = "";
   }
   sendtToQuestion(){
-    console.log('fuction working???');
     let sub = this.props.match.params.topic;
     let dataId = document.querySelector('[data-id]')
     let qId =  1 + parseInt(dataId.getAttribute('data-id'))
-    // window.location.assign(`/topics/${sub}/${qId}`)
-    console.log('Show me the idddddd==>', qId);
   }
 
   renderDocs() {
