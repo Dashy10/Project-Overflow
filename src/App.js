@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import SingleQuestion from './components/SingleQuestion';
 import Search from './components/Search';
+import QA from './components/QA';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -44,6 +45,7 @@ class App extends Component {
               <Route exact path='/login' component={Login}/> {/* <Route exact path='/topics' component={Topics}/> */}
               <Route exact path='/:subject/answers/:id' component={SingleQuestion}/>
               <Route exact path='/topics/:topic' component={Search}/>
+              <Route exact path='/topics/:topic/qa' component={QA}/>
             </Switch>
           </div>
 
